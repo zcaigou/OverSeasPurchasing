@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bb5bd12-0025-480d-802a-cabce435433d" name="变更" comment="第一次提交" />
+    <list default="true" id="1bb5bd12-0025-480d-802a-cabce435433d" name="变更" comment="第一次提交">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/7/07c10f4d307747a1daa669df51d8f3bdcd45b0d7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/e/ce5bb2f8fd0bb47f754c606272d4b99bca0f7bd7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/4/d4fc8f6b70e689407a1fea1101aabbe33a9d9961" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/0/e0f270ba79c3cfa86527803604edff5a2098ca78" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/b/ebe3532b6997b81bdc5bee5e27f5197d3cd264b5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-admin/src/main/resources/application-druid.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-admin/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/enums/DataSourceType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-framework/src/main/java/com/lhg/overseaframework/config/DruidConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-framework/src/main/java/com/lhg/overseaframework/config/properties/DruidProperties.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,9 +33,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/oversea-framework/src/main/java/com/lhg/overseaframework/config/DruidConfig.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -94,7 +104,8 @@
       <workItem from="1680009269868" duration="5985000" />
       <workItem from="1680700831224" duration="7733000" />
       <workItem from="1680782675561" duration="80000" />
-      <workItem from="1681298781960" duration="1542000" />
+      <workItem from="1681298781960" duration="2842000" />
+      <workItem from="1681303347933" duration="67000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1681300437832</created>
@@ -103,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681300437832</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="第一次提交">
+      <created>1681300717285</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681300717285</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
