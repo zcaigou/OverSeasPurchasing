@@ -1,0 +1,6 @@
+
+s	java:S127B"XRefactor the code in order to not assign to this loop counter from within the loop body.(ØÖØ98İÓÀ›ò0
+\
+java:S1118":Add a private constructor to hide the implicit public one.(‚À­øÿÿÿÿ8ÀÕÀ›ò0
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(Ëû¯’úÿÿÿÿ8àÕÀ›ò0
