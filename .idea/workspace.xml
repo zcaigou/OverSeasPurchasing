@@ -18,6 +18,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/oversea-framework/src/main/java/com/lhg/overseaframework/config/DruidConfig.java" root0="SKIP_INSPECTION" />
   </component>
@@ -35,6 +38,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2NP7hbnRrKwgl5j4k9FoOZI8QZ4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -89,12 +93,23 @@
       <workItem from="1680009269868" duration="5985000" />
       <workItem from="1680700831224" duration="7733000" />
       <workItem from="1680782675561" duration="80000" />
-      <workItem from="1681298781960" duration="541000" />
+      <workItem from="1681298781960" duration="1181000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
