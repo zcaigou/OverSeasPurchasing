@@ -27,3 +27,6 @@ mybatis:
   configLocation: classpath:mybatis/mybatis-config.xml
 
 # Spring配置
+spring:
+  profiles:
+    active: druid
