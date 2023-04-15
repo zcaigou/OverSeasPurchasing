@@ -33,6 +33,7 @@
         <commons-io.version>2.11.0</commons-io.version>
         <spring-core.version>5.3.25</spring-core.version>
         <org.yaml.version>1.33</org.yaml.version>
+        <lombok.version>1.18.26</lombok.version>
     </properties>
     <dependencyManagement>
 
@@ -91,6 +92,13 @@
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
             <version>${org.yaml.version}</version>
+        </dependency>
+
+        <!-- lombok注解 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
 
         <dependency>
