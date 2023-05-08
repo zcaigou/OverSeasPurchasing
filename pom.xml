@@ -34,6 +34,8 @@
         <spring-core.version>5.3.25</spring-core.version>
         <org.yaml.version>1.33</org.yaml.version>
         <lombok.version>1.18.26</lombok.version>
+        <jackson-annotations.version>2.14.2</jackson-annotations.version>
+        <pagehelper.boot.version>1.4.3</pagehelper.boot.version>
     </properties>
     <dependencyManagement>
 
@@ -102,6 +104,26 @@
         </dependency>
 
         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson-annotations.version}</version>
+        </dependency>
+
+        <!-- Token生成与解析-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jsonwebtoken.version}</version>
+        </dependency>
+
+        <!-- pagehelper 分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${pagehelper.boot.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.lhg</groupId>
             <artifactId>oversea-common</artifactId>
             <version>${oversea.version}</version>
@@ -109,14 +131,14 @@
 
         <dependency>
             <groupId>com.lhg</groupId>
-            <artifactId>oversea-system</artifactId>
+            <artifactId>oversea-framework</artifactId>
             <version>${oversea.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.lhg</groupId>
-            <artifactId>oversea-framework</artifactId>
-            <version>${oversea.version}</version>
+            <artifactId>oversea-system</artifactId>
+            <version>3.0</version>
         </dependency>
 
         <!-- 解析客户端操作系统、浏览器等 -
@@ -148,6 +170,7 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

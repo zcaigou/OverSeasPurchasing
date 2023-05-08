@@ -36,7 +36,7 @@ public class MyBatisConfig {
 
     /**
      * 自定义typeAliasesPackage
-     * 在application.yml中typeAliasesPackage的值等于com.ruoyi.**.domain
+     * 在application.yml中typeAliasesPackage的值等于com.lhg.**.domain
      * 但是mybatis是无法识别**通配符的
      * 需要我们自己实现通过**通配符匹配到所有的domain包
      *

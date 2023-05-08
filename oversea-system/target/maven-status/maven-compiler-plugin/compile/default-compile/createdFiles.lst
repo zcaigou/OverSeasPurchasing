@@ -1,0 +1,4 @@
+com\lhg\overseasystem\user\service\IUserService.class
+com\lhg\overseasystem\user\domain\User.class
+com\lhg\overseasystem\user\mapper\UserMapper.class
+com\lhg\overseasystem\user\service\UserServiceImpl.class

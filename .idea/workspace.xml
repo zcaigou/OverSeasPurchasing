@@ -4,12 +4,88 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bb5bd12-0025-480d-802a-cabce435433d" name="变更" comment="删除sqldruid和mybatis相关配置">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/4/24d89847f7920b6cd52a6b5e9627f0e8dcf7ace3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/8/587e244f3490c0e39b641450da841ba2ac8c3ee1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/5/75c0a21c5366ebcc011c7b30c6d1887731573ffc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/ac7cc5aa735564c6cd49391643e38b6c0f86b849" beforeDir="false" />
+    <list default="true" id="1bb5bd12-0025-480d-802a-cabce435433d" name="变更" comment="新增：&#10;日志配置文件：logback-spring.xml&#10;mybatis-匹配***&#10;lombok依赖&#10;&#10;使用lombok注解，日志无需定义LoggerFactory">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/2282d724-29d6-46bc-a5d0-acb03c7f737e.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/2282d724-29d6-46bc-a5d0-acb03c7f737e/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/2282d724-29d6-46bc-a5d0-acb03c7f737e/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/2282d724-29d6-46bc-a5d0-acb03c7f737e/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/2282d724-29d6-46bc-a5d0-acb03c7f737e/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/8/18f602fe213a8662dc2017a6a0f362507da430f1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/5/35a1526e611ad04c9649ab4e524fa0bb51b6bf6c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/web/controller/sys/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/web/controller/sys/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/web/controller/sys/SysUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/constant/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/constant/HttpStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/constant/SysConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/core/domain/AjaxResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/core/page/PageDomain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/core/page/TableDataInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/core/page/TableSupport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/core/text/CharsetKit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/core/text/Convert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/core/text/StrFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/domain/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/exception/UtilException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/utils/ServletUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/utils/SqlUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/utils/StringUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/config/MyBatisConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/constant/Constants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/constant/HttpStatus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/constant/SysConstants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/core/domain/AjaxResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/core/page/PageDomain.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/core/page/TableDataInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/core/page/TableSupport.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/core/text/CharsetKit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/core/text/Convert.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/core/text/StrFormatter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/domain/BaseEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/exception/UtilException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/utils/ServletUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/utils/SqlUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/utils/StringUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-common/target/oversea-common-3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-framework/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-framework/target/oversea-framework-3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/user/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/user/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/user/service/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/user/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper.overseasystem/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/target/classes/com/lhg/overseasystem/user/domain/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/target/classes/com/lhg/overseasystem/user/mapper/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/target/classes/com/lhg/overseasystem/user/service/UserServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oversea-system/target/oversea-system-3.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/e/0e43d210f76d202e1c3e2f24a6301a0b18b89133" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/253d77952542ad96a4c18b06253a7ae683d3e7e6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/b/3b1a731fc367a46b7e7e32dffcbe6b6819a8bcb5" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-framework/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/f/6f22be9d960125194c95baa383cb9f6ead814205" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-framework/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/4/a4b6b56f7d8af4bf4de1cd9c9f974963d6ceb018" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/be22996dee2b6829aea45706d71c04599f625f2d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-admin/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/overseaadmin/OverSeasPurchasingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/OverSeasPurchasingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-admin/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-common/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/config/MyBatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/config/MyBatisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-framework/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-system/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-system/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,12 +96,21 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -40,6 +125,13 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="MavenRunner">
+    <option name="delegateBuildToMaven" value="true" />
+    <option name="jreName" value="1.8" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2NP7hbnRrKwgl5j4k9FoOZI8QZ4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -47,15 +139,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/core/page" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -63,8 +158,22 @@
     <property name="project.structure.last.edited" value="模块" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.40344828" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\zzzxy_project\OverSeasPurchasing\oversea-common\src\main\java\com\lhg\overseacommon\core\page" />
+      <recent name="E:\zzzxy_project\OverSeasPurchasing\oversea-common\src\main\java\com\lhg\overseacommon\core\text" />
+      <recent name="E:\zzzxy_project\OverSeasPurchasing\oversea-common\src\main\java\com\lhg\overseacommon\constant" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.lhg.overseaadmin" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lhg.overseacommon.exception" />
+      <recent name="com.lhg.overseacommon.utils" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -74,9 +183,10 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="OverseaAdminApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="未命名" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="oversea-admin" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lhg.overseaadmin.OverseasPurchasingApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lhg.OverSeasPurchasingApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -98,7 +208,15 @@
       <workItem from="1680700831224" duration="7733000" />
       <workItem from="1680782675561" duration="80000" />
       <workItem from="1681298781960" duration="2842000" />
-      <workItem from="1681303347933" duration="502000" />
+      <workItem from="1681303347933" duration="4309000" />
+      <workItem from="1681308227863" duration="1677000" />
+      <workItem from="1681569682205" duration="4304000" />
+      <workItem from="1682148983856" duration="2654000" />
+      <workItem from="1682257113599" duration="2931000" />
+      <workItem from="1682261558169" duration="1788000" />
+      <workItem from="1682519598738" duration="7457000" />
+      <workItem from="1683553175462" duration="7764000" />
+      <workItem from="1683561406917" duration="1812000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1681300437832</created>
@@ -121,7 +239,28 @@
       <option name="project" value="LOCAL" />
       <updated>1681303546733</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="提交项目中也许无用的配置变化">
+      <created>1681303935752</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681303935752</updated>
+    </task>
+    <task id="LOCAL-00005" summary="现可正常启动">
+      <created>1681309863184</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681309863184</updated>
+    </task>
+    <task id="LOCAL-00006" summary="新增：&#10;日志配置文件：logback-spring.xml&#10;mybatis-匹配***&#10;lombok依赖&#10;&#10;使用lombok注解，日志无需定义LoggerFactory">
+      <created>1681579403203</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681579403203</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,22 +280,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第一次提交" />
     <MESSAGE value="删除sqldruid和mybatis相关配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除sqldruid和mybatis相关配置" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/overseaadmin/OverseasPurchasingApplication.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/overseaadmin/OverseasPurchasingApplication.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="提交项目中也许无用的配置变化" />
+    <MESSAGE value="现可正常启动" />
+    <MESSAGE value="新增：&#10;日志配置文件：logback-spring.xml&#10;mybatis-匹配***&#10;lombok依赖&#10;&#10;使用lombok注解，日志无需定义LoggerFactory" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增：&#10;日志配置文件：logback-spring.xml&#10;mybatis-匹配***&#10;lombok依赖&#10;&#10;使用lombok注解，日志无需定义LoggerFactory" />
   </component>
 </project>

@@ -18,6 +18,26 @@
     </properties>
     <dependencies>
 
+        <!-- SpringBoot 核心包 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- 打包剔除junit依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 打包剔除内置tomcat依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- spring-boot-devtools -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -34,7 +54,12 @@
 
         <dependency>
             <groupId>com.lhg</groupId>
-            <artifactId>oversea-framework</artifactId>
+            <artifactId>oversea-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lhg</groupId>
+            <artifactId>oversea-system</artifactId>
         </dependency>
 
     </dependencies>
