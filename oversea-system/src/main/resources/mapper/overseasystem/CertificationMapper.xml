@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhg.overseasystem.certification.mapper.CertificationMapper" >
+    <resultMap id="CertificationResult" type="UserCertification">
+        <id     property="userUri"          column="user_uri"      />
+        <result property="name"             column="name"      />
+        <result property="idType"           column="id_type"      />
+        <result property="idNumber"         column="id_number"      />
+        <result property="idCardFront"      column="id_card_front"      />
+        <result property="idCardreverse"    column="id_card_reverse"      />
+        <result property="createTime"       column="create_time"      />
+    </resultMap>
+
+    <sql id="selectCertification">
+        select user_uri,name,id_type,id_card_front,id_card_reverse,create_time from user_certification
+    </sql>
+
+    <sql id="whereCertification">
+        <if test=" name!=null and name!=''"> name like concact('%', #{name} ,'%')</if>
+        <if test=" idType!=null and idType!=''"> id_type= #{idType}</if>
+        <if test=" idNumber!=null and idNumber!=''"> id_number= #{idNumber}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND u.create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND u.create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+    <!-- 条件查询个人认证信息 -->
+    <select id="selectCertificationList" resultMap="CertificationResult">
+        <include refid="selectCertification" />
+        <where>
+            <include refid="whereCertification"/>
+        </where>
+    </select>
+
+    <!-- 根据userUri查询个人认证信息 -->
+    <select id="selectCertificationByUserUri" resultMap="CertificationResult">
+        <include refid="selectCertification" />
+        where user_uri = #{userUri}
+    </select>
+
+    <!-- 新增个人认证信息 -->
+    <insert id="insertCertification">
+        insert into user_certification(
+        <if test=" userUri!=null and userUri!=''"> user_uri ,</if>
+        <if test=" name!=null and name!=''"> name ,</if>
+        <if test=" idType!=null and idType!=''"> id_type,</if>
+        <if test=" idNumber!=null and idNumber!=''"> id_number,</if>
+        <if test=" idCardFront!=null and idCardFront!=''"> id_card_front,</if>
+        <if test=" idCardReverse!=null and idCardReverse!=''"> id_card_reverse ,</if>
+        create_time
+        ) values(
+        <if test=" userUri!=null and userUri!=''"> #{userUri},</if>
+        <if test=" name!=null and name!=''"> #{name},</if>
+        <if test=" idType!=null and idType!=''"> #{idType},</if>
+        <if test=" idNumber!=null and idNumber!=''"> #{idNumber},</if>
+        <if test=" idCardFront!=null and idCardFront!=''">  #{idCardFront},</if>
+        <if test=" idCardReverse!=null and idCardReverse!=''">  #{idCardReverse},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更改个人认证信息 -->
+    <update id="updateCertification">
+        update user_certification
+        <set>
+            <if test=" name!=null and name!=''"> name = #{name},</if>
+            <if test=" idType!=null and idType!=''"> id_type= #{idType},</if>
+            <if test=" idNumber!=null and idNumber!=''"> id_number= #{idNumber},</if>
+            <if test=" idCardFront!=null and idCardFront!=''"> id_card_front = #{idCardFront},</if>
+            <if test=" idCardReverse!=null and idCardReverse!=''"> id_card_reverse = #{idCardReverse},</if>
+            create_time = sysdate()
+        </set>
+        where user_uri = #{userUri}
+    </update>
+
+    <!-- 根据userUri删除个人认证信息-->
+    <delete id="deleteCertificationByUserUri">
+        delete from user_certification where user_uri = #{userUri}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
+
+</mapper>

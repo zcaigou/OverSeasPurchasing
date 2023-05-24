@@ -32,6 +32,9 @@ public class User extends BaseEntity {
     /** 是否实名认证 **/
     private boolean isCertification;
 
+    /** 用户状态 **/
+    private String delFlag;
+
     public Long getUserId() {
         return userId;
     }
@@ -94,6 +97,14 @@ public class User extends BaseEntity {
 
     public void setCertification(boolean certification) {
         isCertification = certification;
+    }
+
+    public String getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(String delFlag) {
+        this.delFlag = delFlag;
     }
 
     @Override

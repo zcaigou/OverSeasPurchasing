@@ -20,6 +20,10 @@
         <module>oversea-common</module>
         <module>oversea-framework</module>
         <module>oversea-system</module>
+        <module>oversea-purchasing</module>
+        <module>oversea-product</module>
+        <module>oversea-logistics</module>
+        <module>oversea-business</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
@@ -36,6 +40,7 @@
         <lombok.version>1.18.26</lombok.version>
         <jackson-annotations.version>2.14.2</jackson-annotations.version>
         <pagehelper.boot.version>1.4.3</pagehelper.boot.version>
+        <fastjson.version>2.0.14</fastjson.version>
     </properties>
     <dependencyManagement>
 
@@ -123,6 +128,13 @@
             <version>${pagehelper.boot.version}</version>
         </dependency>
 
+        <!-- 阿里JSON解析器 -->
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.lhg</groupId>
             <artifactId>oversea-common</artifactId>
@@ -138,8 +150,34 @@
         <dependency>
             <groupId>com.lhg</groupId>
             <artifactId>oversea-system</artifactId>
-            <version>3.0</version>
+            <version>${oversea.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.lhg</groupId>
+            <artifactId>oversea-product</artifactId>
+            <version>${oversea.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lhg</groupId>
+            <artifactId>oversea-purchasing</artifactId>
+            <version>${oversea.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lhg</groupId>
+            <artifactId>oversea-logistics</artifactId>
+            <version>${oversea.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lhg</groupId>
+            <artifactId>oversea-business</artifactId>
+            <version>${oversea.version}</version>
+        </dependency>
+
+
 
         <!-- 解析客户端操作系统、浏览器等 -
         <dependency>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhg.overseasystem.account.mapper.AccountMapper" >
+    <resultMap id="AccountResult" type="UserAccount">
+        <id     property="userUri"          column="user_uri"      />
+        <result property="accountId"             column="account_id"      />
+        <result property="accountMoney"           column="account_money"      />
+        <result property="realName"         column="real_name"      />
+    </resultMap>
+
+    <sql id = "selectAccount">
+        select user_uri,account_id,account_money,real_name from user_account
+    </sql>
+
+    <sql id = "whereAccount">
+        <if test=" userUri!=null and userUri!=''"> user_uri= #{userUri}</if>
+        <if test=" accountId!=null and accountId!=''"> account_id= #{accountId}</if>
+        <if test=" accountMoney!=null and accountMoney!=''"> account_money= #{accountMoney}</if>
+        <if test=" realName!=null and realName!=''"> real_name= #{realName}</if>
+    </sql>
+
+    <!-- 条件查询个人账户信息 -->
+    <select id="selectAccountList" resultMap="AccountResult">
+        <include refid="selectAccount" />
+        <where>
+            <include refid="whereAccount" />
+        </where>
+    </select>
+
+    <!-- 根据userUri和accountId查询个人账户信息 -->
+    <select id="selectByUserUriAndAccountId" resultMap="AccountResult">
+        <include refid="selectAccount" />
+        where user_uri = #{userUri} and account_id = #{accountId}
+    </select>
+
+    <!-- 新增个人账户信息 -->
+    <insert id="insertAccount">
+        insert into user_account(account_id, user_uri, account_money, real_name)
+        values ( #{accountId} , #{userUri}, #{accountMoney}, #{realName})
+    </insert>
+
+    <!-- 更改个人账户金额 -->
+    <update id="updateAccount">
+        update user_account set account_money = #{accountMoney}
+        where user_uri = #{userUri} and account_id = #{accountId}
+    </update>
+
+    <!-- 根据userUri删除个人账户信息 -->
+    <delete id="deleteAccountByUserUri">
+        delete from user_account where user_uri = #{userUri}
+    </delete>
+
+    <!-- 根据userUri和accountId删除个人账户 -->
+    <delete id="deleteByUserUriAndAccountId">
+        delete from user_account where user_uri = #{userUri} and account_id = #{accountId}
+    </delete>
+
+
+    <!-- -->
+
+    <!-- -->
+
+
+</mapper>

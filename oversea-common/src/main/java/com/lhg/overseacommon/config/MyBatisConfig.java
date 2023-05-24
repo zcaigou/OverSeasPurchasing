@@ -2,10 +2,12 @@ package com.lhg.overseacommon.config;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import javax.sql.DataSource;
 
+import com.lhg.overseacommon.utils.StringUtils;
 import org.apache.ibatis.io.VFS;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -34,24 +36,19 @@ public class MyBatisConfig {
 
     static final String DEFAULT_RESOURCE_PATTERN = "**/*.class";
 
-    /**
-     * 自定义typeAliasesPackage
-     * 在application.yml中typeAliasesPackage的值等于com.lhg.**.domain
-     * 但是mybatis是无法识别**通配符的
-     * 需要我们自己实现通过**通配符匹配到所有的domain包
-     *
-     * @param typeAliasesPackage
-     * @return
-     */
-    public static String setTypeAliasesPackage(String typeAliasesPackage) {
+    public String setTypeAliasesPackage(String typeAliasesPackage) {
+//		资源路径解析器
         ResourcePatternResolver resolver = (ResourcePatternResolver) new PathMatchingResourcePatternResolver();
+//		元数据读取
         MetadataReaderFactory metadataReaderFactory = new CachingMetadataReaderFactory(resolver);
         List<String> allResult = new ArrayList<String>();
         try {
             for (String aliasesPackage : typeAliasesPackage.split(",")) {
                 List<String> result = new ArrayList<String>();
+//				解析路径
                 aliasesPackage = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX
-                        + ClassUtils.convertClassNameToResourcePath(aliasesPackage.trim()) + "/" + DEFAULT_RESOURCE_PATTERN;
+                        + ClassUtils.convertClassNameToResourcePath(aliasesPackage.trim()) + "/"
+                        + DEFAULT_RESOURCE_PATTERN;
                 Resource[] resources = resolver.getResources(aliasesPackage);
                 if (resources != null && resources.length > 0) {
                     MetadataReader metadataReader = null;
@@ -59,7 +56,8 @@ public class MyBatisConfig {
                         if (resource.isReadable()) {
                             metadataReader = metadataReaderFactory.getMetadataReader(resource);
                             try {
-                                result.add(Class.forName(metadataReader.getClassMetadata().getClassName()).getPackage().getName());
+                                result.add(Class.forName(metadataReader.getClassMetadata().getClassName()).getPackage()
+                                        .getName());
                             } catch (ClassNotFoundException e) {
                                 e.printStackTrace();
                             }
@@ -74,7 +72,8 @@ public class MyBatisConfig {
             if (allResult.size() > 0) {
                 typeAliasesPackage = String.join(",", (String[]) allResult.toArray(new String[0]));
             } else {
-                throw new RuntimeException("mybatis typeAliasesPackage 路径扫描错误,参数typeAliasesPackage:" + typeAliasesPackage + "未找到任何包");
+                throw new RuntimeException(
+                        "mybatis typeAliasesPackage 路径扫描错误,参数typeAliasesPackage:" + typeAliasesPackage + "未找到任何包");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -82,13 +81,26 @@ public class MyBatisConfig {
         return typeAliasesPackage;
     }
 
+    public Resource[] resolveMapperLocations(String[] mapperLocations) {
+        ResourcePatternResolver resourceResolver = new PathMatchingResourcePatternResolver();
+        List<Resource> resources = new ArrayList<Resource>();
+        if (mapperLocations != null) {
+            for (String mapperLocation : mapperLocations) {
+                try {
+                    Resource[] mappers = resourceResolver.getResources(mapperLocation);
+                    resources.addAll(Arrays.asList(mappers));
+                } catch (IOException e) {
+                    // ignore
+                }
+            }
+        }
+        return resources.toArray(new Resource[resources.size()]);
+    }
+
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
-        // 获取配置文件中定义的 mybatis.typeAliasesPackage 的值
         String typeAliasesPackage = env.getProperty("mybatis.typeAliasesPackage");
-        // 获取配置文件中定义的 mybatis.mapperLocations 的值
         String mapperLocations = env.getProperty("mybatis.mapperLocations");
-        // 获取配置文件中定义的 mybatis.configLocation 的值
         String configLocation = env.getProperty("mybatis.configLocation");
         typeAliasesPackage = setTypeAliasesPackage(typeAliasesPackage);
         VFS.addImplClass(SpringBootVFS.class);
@@ -96,8 +108,7 @@ public class MyBatisConfig {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         sessionFactory.setTypeAliasesPackage(typeAliasesPackage);
-        // 在所有jar包的classpath下查找所有以Mapper.xml结尾的xml文件
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(mapperLocations));
+        sessionFactory.setMapperLocations(resolveMapperLocations(StringUtils.split(mapperLocations, ",")));
         sessionFactory.setConfigLocation(new DefaultResourceLoader().getResource(configLocation));
         return sessionFactory.getObject();
     }

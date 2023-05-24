@@ -1,0 +1,15 @@
+
+d
+java:S1192Õ"HDefine a constant instead of duplicating this literal "(é›¶.)+" 3 times.(ÏşØãıÿÿÿÿ
+8
+java:S1643Õ"Use a StringBuilder instead.(ÏşØãıÿÿÿÿ
+8
+java:S1643â"Use a StringBuilder instead.(ÎÜ× ıÿÿÿÿ
+3
+java:S1643å"Use a StringBuilder instead.(‚æåŸ
+{
+java:S1488¾"dImmediately return this expression instead of assigning it to the temporary variable "returnString".(­æºŸ
+U
+java:S1118":Add a private constructor to hide the implicit public one.(šïÅ³ıÿÿÿÿ
+=
+java:S2111Í"!Use "BigDecimal.valueOf" instead.(¹ã²üÿÿÿÿ

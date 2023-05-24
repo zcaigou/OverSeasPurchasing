@@ -1,11 +1,15 @@
 com\lhg\overseacommon\core\text\StrFormatter.class
+com\lhg\overseacommon\utils\HttpUtils$TrustAnyHostnameVerifier.class
 com\lhg\overseacommon\utils\ServletUtils.class
 com\lhg\overseacommon\utils\StringUtils.class
 com\lhg\overseacommon\constant\Constants.class
+com\lhg\overseacommon\utils\spring\SpringUtils.class
 com\lhg\overseacommon\constant\SysConstants.class
 com\lhg\overseacommon\core\domain\AjaxResult.class
+com\lhg\overseacommon\utils\HttpUtils.class
 com\lhg\overseacommon\domain\BaseEntity.class
 com\lhg\overseacommon\exception\UtilException.class
+com\lhg\overseacommon\utils\HttpUtils$1.class
 com\lhg\overseacommon\core\page\TableDataInfo.class
 com\lhg\overseacommon\core\text\CharsetKit.class
 com\lhg\overseacommon\core\page\TableSupport.class
@@ -13,4 +17,5 @@ com\lhg\overseacommon\utils\SqlUtil.class
 com\lhg\overseacommon\core\page\PageDomain.class
 com\lhg\overseacommon\core\text\Convert.class
 com\lhg\overseacommon\constant\HttpStatus.class
+com\lhg\overseacommon\utils\HttpUtils$TrustAnyTrustManager.class
 com\lhg\overseacommon\config\MyBatisConfig.class

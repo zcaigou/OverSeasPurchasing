@@ -44,4 +44,14 @@ public class SysConstants {
      *  用户——身份认证——未认证
      */
     private String USER_CERTIFICATION_NO = "1";
+
+    /**
+     * 角色状态——正常
+     */
+    private String ROLE_STATUS_NORMAL = "0";
+
+    /**
+     * 角色状态——禁用
+     */
+    private String ROLE_STATUS_DISABLE = "1";
 }

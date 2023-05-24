@@ -8,8 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="oversea-system" />
-        <module name="oversea-common" />
+        <module name="oversea-purchasing" />
+        <module name="oversea-business" />
         <module name="oversea-framework" />
+        <module name="oversea-logistics" />
+        <module name="oversea-common" />
+        <module name="oversea-product" />
         <module name="oversea-admin" />
       </profile>
     </annotationProcessing>
@@ -18,8 +22,12 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="OverSeasPurchasing" options="" />
       <module name="oversea-admin" options="-parameters" />
+      <module name="oversea-business" options="-parameters" />
       <module name="oversea-common" options="-parameters" />
       <module name="oversea-framework" options="-parameters" />
+      <module name="oversea-logistics" options="-parameters" />
+      <module name="oversea-product" options="-parameters" />
+      <module name="oversea-purchasing" options="-parameters" />
       <module name="oversea-system" options="-parameters" />
     </option>
   </component>
