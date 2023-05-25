@@ -294,7 +294,7 @@ CREATE TABLE `purchasing_order`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `order_product`;
 CREATE TABLE `order_product`  (
-                                  `id` int(0) NOT NULL COMMENT '关系标识',
+                                  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '关系标识',
                                   `order_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单号',
                                   `product_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品id',
                                   `specifications_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品规格标识',
@@ -302,6 +302,8 @@ CREATE TABLE `order_product`  (
                                   `price` double(10, 2) NULL DEFAULT NULL COMMENT '单价',
                                   `state` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '该订单商品状态；退货；换货；已收到退货；已发出；仅退款',
                                   `logistics_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '物流单号',
+                                  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+                                  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
                                   PRIMARY KEY (`id`) USING BTREE,
                                   INDEX `orderproduct_orderid_fk`(`order_id`) USING BTREE,
                                   INDEX `orderproduct_productid_fk`(`product_id`) USING BTREE,
@@ -312,6 +314,8 @@ CREATE TABLE `order_product`  (
                                   CONSTRAINT `orderproduct_productid_fk` FOREIGN KEY (`product_id`) REFERENCES `purchasing_product` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
                                   CONSTRAINT `orderproduct_spec_fk` FOREIGN KEY (`specifications_id`) REFERENCES `product_specifications` (`specification_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单—商品关系表' ROW_FORMAT = Dynamic;
+
+SET FOREIGN_KEY_CHECKS = 1;
 
 -- ----------------------------
 -- 商品物流表：purchasing_logistics
@@ -372,7 +376,7 @@ CREATE TABLE `logistics_user`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `purchasing_address`;
 CREATE TABLE `purchasing_address`  (
-                                       `id` int(0) NOT NULL COMMENT '标识',
+                                       `id` int(0) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '标识',
                                        `user_uri` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户uri',
                                        `country` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '国家',
                                        `province` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '省',
@@ -385,10 +389,14 @@ CREATE TABLE `purchasing_address`  (
                                        `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '名称',
                                        `is_default` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '1' COMMENT '是否默认地址；0：是，1：不是',
                                        `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '1' COMMENT '0：买家地址:1：店铺地址',
+                                       `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+                                       `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更改时间',
                                        PRIMARY KEY (`id`) USING BTREE,
                                        INDEX `address_userid`(`user_uri`) USING BTREE,
                                        CONSTRAINT `address_userid` FOREIGN KEY (`user_uri`) REFERENCES `sys_user` (`user_uri`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '收货地址信息表' ROW_FORMAT = Dynamic;
+
+SET FOREIGN_KEY_CHECKS = 1;
 
 -- ----------------------------
 -- 退款信息表：product_return

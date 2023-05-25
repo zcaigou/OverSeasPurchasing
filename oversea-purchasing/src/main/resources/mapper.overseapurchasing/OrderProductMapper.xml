@@ -2,6 +2,106 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseapurchasing.order.mapper.OrderProductMapper">
 
+    <resultMap id="OrderProductResult" type="OrderProduct">
+        <id property="id" column="id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="productId" column="product_id"/>
+        <result property="specificationsId" column="specifications_id"/>
+        <result property="sum" column="sum"/>
+        <result property="price" column="price"/>
+        <result property="state" column="state"/>
+        <result property="logisticsId" column="logistics_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <sql id="selectOrderProduct">
+        select id, order_id, product_id, specifications_id, sum, price, state, logistics_id, create_time, update_time
+        from order_product
+    </sql>
+
+    <sql id="whereOrderProduct">
+        <if test=" orderId!=null and orderId!=''"> AND order_id = #{orderId}</if>
+        <if test=" productId!=null and productId!=''"> AND product_id = #{productId}</if>
+        <if test=" specificationsId!=null and specificationsId!=''"> AND specifications_id = #{specificationsId}</if>
+        <if test=" sum!=null and sum!=''"> AND sum = #{sum}</if>
+        <if test=" price!=null and price!=''"> AND price = #{price}</if>
+        <if test=" state!=null and state!=''"> AND state = #{state}</if>
+        <if test=" logisticsId!=null and logisticsId!=''"> AND logistics_id = #{logisticsId}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询订单商品关系 -->
+    <select id="selectOrderProductList" resultMap="OrderProductResult">
+        <include refid="selectOrderProduct"/>
+        <where>
+            <include refid="whereOrderProduct"/>
+        </where>
+    </select>
+
+    <!-- 根据id查询订单商品关系 -->
+    <select id="selectOrderProductById" resultMap="OrderProductResult">
+        <include refid="selectOrderProduct"/>
+        where id= #{id}
+    </select>
+
+    <!-- 新增订单商品关系 -->
+    <insert id="insertOrderProduct">
+        insert into  order_product(
+        <if test=" orderId!=null and orderId!=''">order_id,</if>
+        <if test=" productId!=null and productId!=''">product_id ,</if>
+        <if test=" specificationsId!=null and specificationsId!=''">specifications_id ,</if>
+        <if test=" sum!=null and sum!=''">sum ,</if>
+        <if test=" price!=null and price!=''">price ,</if>
+        <if test=" state!=null and state!=''">state ,</if>
+        <if test=" logisticsId!=null and logisticsId!=''">logistics_id ,</if>
+                                   create_time
+        ) values (
+        <if test=" orderId!=null and orderId!=''">#{orderId},</if>
+        <if test=" productId!=null and productId!=''">#{productId},</if>
+        <if test=" specificationsId!=null and specificationsId!=''">#{specificationsId},</if>
+        <if test=" sum!=null and sum!=''">#{sum},</if>
+        <if test=" price!=null and price!=''"> #{price},</if>
+        <if test=" state!=null and state!=''">#{state},</if>
+        <if test=" logisticsId!=null and logisticsId!=''">#{logisticsId},</if>
+                  sysdate()
+        )
+    </insert>
+
+    <!-- 更改订单商品关系 -->
+    <update id="updateOrderProduct">
+        update order_product
+        <set>
+            <if test=" orderId!=null and orderId!=''">order_id = #{orderId},</if>
+            <if test=" productId!=null and productId!=''">product_id = #{productId},</if>
+            <if test=" specificationsId!=null and specificationsId!=''">specifications_id = #{specificationsId},</if>
+            <if test=" sum!=null and sum!=''">sum = #{sum},</if>
+            <if test=" price!=null and price!=''">price = #{price},</if>
+            <if test=" state!=null and state!=''">state = #{state},</if>
+            <if test=" logisticsId!=null and logisticsId!=''">logistics_id = #{logisticsId},</if>
+            update_time= sysdate()
+
+        </set>
+        where id= #{id}
+    </update>
+
+    <!-- 根据id删除订单商品关系 -->
+    <delete id="deleteOrderProductById">
+        delete from order_product
+            where id= #{id}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 </mapper>

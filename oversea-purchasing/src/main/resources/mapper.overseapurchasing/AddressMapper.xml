@@ -2,6 +2,130 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseapurchasing.address.mapper.AddressMapper">
 
+    <resultMap id="AddressResult" type="Address">
+        <id property="id" column="id"/>
+        <result property="userUri" column="user_uri"/>
+        <result property="country" column="country"/>
+        <result property="province" column="province"/>
+        <result property="city" column="city"/>
+        <result property="area" column="area"/>
+        <result property="street" column="street"/>
+        <result property="address" column="address"/>
+        <result property="zipCode" column="zip_code"/>
+        <result property="telephone" column="telephone"/>
+        <result property="name" column="name"/>
+        <result property="isDefault" column="is_default"/>
+        <result property="type" column="type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <sql id="selectAddress">
+        select id, user_uri, country, province, city, area, street, address, zip_code, telephone, name, is_default, type, create_time, update_time
+        from purchasing_address
+    </sql>
+
+    <sql id="whereAddress">
+        <if test=" userUri!=null and userUri!=''">user_uri = #{userUri}</if>
+        <if test=" country!=null and country!=''">country = #{country}</if>
+        <if test=" province!=null and province!=''">province = #{province}</if>
+        <if test=" city!=null and city!=''">city = #{city}</if>
+        <if test=" area!=null and area!=''">area =#{area}</if>
+        <if test=" street!=null and street!=''">street = #{street}</if>
+        <if test=" address!=null and address!=''">address = #{address}</if>
+        <if test=" zipCode!=null and zipCode!=''">zip_code = #{zipCode}</if>
+        <if test=" telephone!=null and telephone!=''">telephone = #{telephone}</if>
+        <if test=" name!=null and name!=''">name = #{name}</if>
+        <if test=" isDefault!=null and isDefault!=''">is_default = #{isDefault}</if>
+        <if test=" type!=null and type!=''">type = #{type}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询收货地址信息 -->
+    <select id="selectAddressList" resultMap="AddressResult">
+        <include refid="selectAddress"/>
+        <where>
+            <include refid="whereAddress"/>
+        </where>
+    </select>
+
+    <!-- 根据id查询收货地址信息 -->
+    <select id="selectAddressById" resultMap="AddressResult">
+        <include refid="selectAddress"/>
+        where id= #{id}
+    </select>
+
+    <!-- 新增收货地址信息 -->
+    <insert id="insertAddress">
+        insert into purchasing_address (
+        <if test=" userUri!=null and userUri!=''">user_uri,</if>
+        <if test=" country!=null and country!=''">country,</if>
+        <if test=" province!=null and province!=''">province,</if>
+        <if test=" city!=null and city!=''">city,</if>
+        <if test=" area!=null and area!=''">area,</if>
+        <if test=" street!=null and street!=''">street,</if>
+        <if test=" address!=null and address!=''">address,</if>
+        <if test=" zipCode!=null and zipCode!=''">zip_code,</if>
+        <if test=" telephone!=null and telephone!=''">telephone,</if>
+        <if test=" name!=null and name!=''">name,</if>
+        <if test=" isDefault!=null and isDefault!=''">is_default,</if>
+        <if test=" type!=null and type!=''">type,</if>
+        create_time
+        ) values (
+        <if test=" userUri!=null and userUri!=''"> #{userUri},</if>
+        <if test=" country!=null and country!=''">#{country},</if>
+        <if test=" province!=null and province!=''">#{province},</if>
+        <if test=" city!=null and city!=''">#{city},</if>
+        <if test=" area!=null and area!=''">#{area},</if>
+        <if test=" street!=null and street!=''">#{street},</if>
+        <if test=" address!=null and address!=''"> #{address},</if>
+        <if test=" zipCode!=null and zipCode!=''"> #{zipCode},</if>
+        <if test=" telephone!=null and telephone!=''">#{telephone},</if>
+        <if test=" name!=null and name!=''">#{name},</if>
+        <if test=" isDefault!=null and isDefault!=''"> #{isDefault},</if>
+        <if test=" type!=null and type!=''">#{type},</if>
+                  sysdate()
+        )
+    </insert>
+
+    <!-- 更改收货地址信息 -->
+    <update  id="updateAddress">
+        update purchasing_address
+        <set>
+            <if test=" userUri!=null and userUri!=''">user_uri = #{userUri},</if>
+            <if test=" country!=null and country!=''">country = #{country},</if>
+            <if test=" province!=null and province!=''">province = #{province},</if>
+            <if test=" city!=null and city!=''">city = #{city},</if>
+            <if test=" area!=null and area!=''">area =#{area},</if>
+            <if test=" street!=null and street!=''">street = #{street},</if>
+            <if test=" address!=null and address!=''">address = #{address},</if>
+            <if test=" zipCode!=null and zipCode!=''">zip_code = #{zipCode},</if>
+            <if test=" telephone!=null and telephone!=''">telephone = #{telephone},</if>
+            <if test=" name!=null and name!=''">name = #{name},</if>
+            <if test=" isDefault!=null and isDefault!=''">is_default = #{isDefault},</if>
+            <if test=" type!=null and type!=''">type = #{type},</if>
+        update_time = sysdate()
+        </set>
+        where id= #{id}
+    </update>
+
+    <!-- 根据id删除收货地址信息 -->
+    <delete id="deleteAddressById">
+        delete from purchasing_address
+            where id= #{id}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 </mapper>
