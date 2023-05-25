@@ -2,6 +2,60 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseaproduct.brand.mapper.BrandRegisterMaterialsMapper">
+    <resultMap id="RegsiterMaterials" type="BrandRegisterMaterials">
+        <id property="materialId" column="material_id"/>
+        <result property="brandId" column="brand_id"/>
+        <result property="submitMaterial" column="submit_material"/>
+    </resultMap>
+
+    <sql id="selectMaterials">
+        select material_id, brand_id, submit_material from brand_register_materials
+    </sql>
+
+    <sql id="whereMaterials">
+        <if test="brandId !=null and brandId !=''"> AND brand_id = #{brandId}</if>
+         <if test="materialId !=null and materialId !=''">AND material_id = #{materialId}</if>
+    </sql>
+
+    <!-- 条件查询注册材料图 -->
+    <select id="selectMaterialsList" resultMap="RegsiterMaterials">
+        <include refid="selectMaterials"/>
+        <where>
+            <include refid="whereMaterials"/>
+        </where>
+    </select>
+
+    <!-- 根据materialId和brandId查询注册材料图 -->
+    <select id="selectByMaterialIdAndBrandId" resultMap="RegsiterMaterials">
+        <include refid="selectMaterials"/>
+        where material_id = #{materialId} and brand_id = #{brandId}
+    </select>
+
+    <!-- 新增注册材料图 -->
+    <insert id="insertMaterials">
+        insert into brand_register_materials(material_id, brand_id, submit_material)
+        values(#{materialId}, #{brandId}, #{submitMaterial})
+    </insert>
+
+    <!-- 根据materialId和brandId删除注册材料图 -->
+    <delete id="deleteByMaterialIdAndBrandId">
+        delete from brand_register_materials where material_id = #{materialId} and brand_id = #{brandId}
+    </delete>
+
+    <!-- 根据materialId删除注册材料图 -->
+    <delete id="deleteByMaterialId">
+        delete from brand_register_materials where material_id = #{materialId}
+    </delete>
+
+    <!-- 根据brandId删除注册材料图 -->
+    <delete id="deleteByBrandId">
+        delete from brand_register_materials where brand_id = #{brandId}
+    </delete>
+
+    <!-- -->
+
+
+
 
 </mapper>

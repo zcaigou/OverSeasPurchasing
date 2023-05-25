@@ -5,7 +5,7 @@
 <mapper namespace="com.lhg.overseasystem.certification.mapper.CertificationMapper" >
     <resultMap id="CertificationResult" type="UserCertification">
         <id     property="userUri"          column="user_uri"      />
-        <result property="name"             column="name"      />
+        <result property="cname"             column="cname"      />
         <result property="idType"           column="id_type"      />
         <result property="idNumber"         column="id_number"      />
         <result property="idCardFront"      column="id_card_front"      />
@@ -14,13 +14,13 @@
     </resultMap>
 
     <sql id="selectCertification">
-        select user_uri,name,id_type,id_card_front,id_card_reverse,create_time from user_certification
+        select user_uri,cname,id_type,id_card_front,id_card_reverse,create_time from user_certification
     </sql>
 
     <sql id="whereCertification">
-        <if test=" name!=null and name!=''"> name like concact('%', #{name} ,'%')</if>
-        <if test=" idType!=null and idType!=''"> id_type= #{idType}</if>
-        <if test=" idNumber!=null and idNumber!=''"> id_number= #{idNumber}</if>
+        <if test=" cname!=null and cname!=''"> AND cname like concact('%', #{cname} ,'%')</if>
+        <if test=" idType!=null and idType!=''">AND  id_type= #{idType}</if>
+        <if test=" idNumber!=null and idNumber!=''"> AND id_number= #{idNumber}</if>
         <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
             AND u.create_time <![CDATA[>= ]]>
             TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
@@ -49,7 +49,7 @@
     <insert id="insertCertification">
         insert into user_certification(
         <if test=" userUri!=null and userUri!=''"> user_uri ,</if>
-        <if test=" name!=null and name!=''"> name ,</if>
+        <if test=" cname!=null and cname!=''"> cname ,</if>
         <if test=" idType!=null and idType!=''"> id_type,</if>
         <if test=" idNumber!=null and idNumber!=''"> id_number,</if>
         <if test=" idCardFront!=null and idCardFront!=''"> id_card_front,</if>
@@ -57,7 +57,7 @@
         create_time
         ) values(
         <if test=" userUri!=null and userUri!=''"> #{userUri},</if>
-        <if test=" name!=null and name!=''"> #{name},</if>
+        <if test=" cname!=null and cname!=''"> #{cname},</if>
         <if test=" idType!=null and idType!=''"> #{idType},</if>
         <if test=" idNumber!=null and idNumber!=''"> #{idNumber},</if>
         <if test=" idCardFront!=null and idCardFront!=''">  #{idCardFront},</if>
@@ -70,7 +70,7 @@
     <update id="updateCertification">
         update user_certification
         <set>
-            <if test=" name!=null and name!=''"> name = #{name},</if>
+            <if test=" cname!=null and cname!=''"> cname = #{cname},</if>
             <if test=" idType!=null and idType!=''"> id_type= #{idType},</if>
             <if test=" idNumber!=null and idNumber!=''"> id_number= #{idNumber},</if>
             <if test=" idCardFront!=null and idCardFront!=''"> id_card_front = #{idCardFront},</if>

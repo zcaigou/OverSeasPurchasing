@@ -4,170 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bb5bd12-0025-480d-802a-cabce435433d" name="变更" comment="系统用户表sql">
-      <change afterPath="$PROJECT_DIR$/oversea-admin/src/test/java/com/lhg/IUserServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/domain/Budget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/mapper/BudgetMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/service/BudgetServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/service/IBudgetService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/domain/Shop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/mapper/ShopMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/service/IShopService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/service/ShopServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/domain/Warehouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/mapper/WarehouseMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/service/IWarehouseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/service/WarehouseServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/resources/mapper.overseabusiness/BudgetMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/resources/mapper.overseabusiness/ShopMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-business/src/main/resources/mapper.overseabusiness/WarehouseMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/utils/HttpUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/utils/spring/SpringUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/company/domain/Company.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/company/mapper/CompanyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/company/service/CompanyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/company/service/ICompanyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/logistics/domain/Logistics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/logistics/mapper/LogisticsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/logistics/service/ILogisticsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/logistics/service/LogisticsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/staff/domain/LogisticsStaff.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/staff/mapper/LogisticsStaffMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/staff/service/ILogisticsStaffService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/java/com/lhg/oversealogistics/staff/service/LogisticsStaffServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/resources/mapper.oversealogistics/CompanyMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/resources/mapper.oversealogistics/LogisticsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-logistics/src/main/resources/mapper.oversealogistics/LogisticsStaffMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/domain/Brand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/domain/BrandRegisterMaterials.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/mapper/BrandMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/mapper/BrandRegisterMaterialsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/BrandRegisterMaterialsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/BrandServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/IBrandRegisterMaterialsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/IBrandService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/domain/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/domain/ProductDiagram.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/mapper/ProductDiagramMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/mapper/ProductMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/IProductDiagramService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/IProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/ProductDiagramServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/producttype/domain/ProductType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/producttype/mapper/ProductTypeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/producttype/service/IProductTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/producttype/service/ProductTypeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/domain/ProductReview.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/domain/ReviewImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/mapper/ProductReviewMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/mapper/ReviewImageMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/IProductReviewService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/IReviewImageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/ProductReviewServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/ReviewImageServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/domain/AfterSaleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/mapper/AfterSaleServiceMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/service/AfterSaleServiceServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/service/IAfterSaleServiceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/domain/Specifications.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/mapper/SpecificationsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/service/ISpecificationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/service/SpecificationsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/AfterSaleServiceMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/BrandMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/BrandRegisterMaterialsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductDiagramMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductReviewMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductTypeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ReviewImageMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/SpecificationsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/address/domain/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/address/mapper/AddressMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/address/service/AddressServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/address/service/IAddressService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/order/domain/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/order/domain/OrderProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/order/mapper/OrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/order/mapper/OrderProductMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/order/service/IOrderProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/order/service/IOrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/order/service/OrderProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/order/service/OrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/orderexchange/domain/OrderExchange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/orderexchange/mapper/OrderExchangeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/orderexchange/service/IOrderExchangeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/orderexchange/service/OrderExchangeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/orderreturn/domain/OrderReturn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/orderreturn/mapper/OrderReturnMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/orderreturn/service/IOrderExchangeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/orderreturn/service/OrderReturnServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/trolley/domain/Trolley.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/trolley/mapper/TrolleyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/trolley/service/ITrolleyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/java/com/lhg/overseapurchasing/trolley/service/TrolleyServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/resources/mapper.overseapurchasing/AddressMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/resources/mapper.overseapurchasing/OrderExchangeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/resources/mapper.overseapurchasing/OrderMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/resources/mapper.overseapurchasing/OrderProductMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/resources/mapper.overseapurchasing/OrderReturnMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-purchasing/src/main/resources/mapper.overseapurchasing/TrolleyMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/account/domain/UserAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/account/mapper/AccountMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/account/service/AccountServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/account/service/IAccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/certification/domain/UserCertification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/certification/mapper/CertificationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/certification/service/CertificationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/certification/service/ICertificationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/role/domain/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/role/domain/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/role/mapper/RoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/role/mapper/UserRoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/role/service/IRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/role/service/IUserRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/role/service/RoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/role/service/UserRoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/AccountMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/CertificationMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/RoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/UserRoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="1bb5bd12-0025-480d-802a-cabce435433d" name="变更" comment="新增purchasng、product、business、logistics模块及其相关类；&#10;完成系统相关类的基本逻辑实现">
+      <change afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/constant/ProductConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2282d724-29d6-46bc-a5d0-acb03c7f737e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2282d724-29d6-46bc-a5d0-acb03c7f737e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-admin/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/OverSeasPurchasingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/OverSeasPurchasingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/web/controller/sys/SysUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-admin/src/main/java/com/lhg/web/controller/sys/SysUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-admin/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/config/MyBatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/config/MyBatisConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/constant/SysConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-common/src/main/java/com/lhg/overseacommon/constant/SysConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/config/MyBatisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/config/MyBatisConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/constant/SysConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-common/target/classes/com/lhg/overseacommon/constant/SysConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-common/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-common/target/oversea-common-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-framework/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-framework/target/oversea-framework-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/user/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/user/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper.overseasystem/UserMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-system/target/classes/com/lhg/overseasystem/user/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/target/classes/com/lhg/overseasystem/user/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-system/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-system/target/oversea-system-3.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/domain/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/domain/Brand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/domain/BrandRegisterMaterials.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/domain/BrandRegisterMaterials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/mapper/BrandMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/mapper/BrandMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/mapper/BrandRegisterMaterialsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/mapper/BrandRegisterMaterialsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/BrandRegisterMaterialsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/BrandRegisterMaterialsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/BrandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/BrandServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/IBrandRegisterMaterialsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/IBrandRegisterMaterialsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/IBrandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/brand/service/IBrandService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/domain/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/domain/ProductDiagram.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/domain/ProductDiagram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/mapper/ProductDiagramMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/mapper/ProductDiagramMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/mapper/ProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/IProductDiagramService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/IProductDiagramService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/ProductDiagramServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/ProductDiagramServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/product/service/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/producttype/domain/ProductType.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/producttype/domain/ProductType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/producttype/mapper/ProductTypeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/producttype/mapper/ProductTypeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/producttype/service/IProductTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/producttype/service/IProductTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/producttype/service/ProductTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/producttype/service/ProductTypeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/BrandMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/BrandMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/BrandRegisterMaterialsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/BrandRegisterMaterialsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductDiagramMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductDiagramMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/ProductTypeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/certification/domain/UserCertification.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/src/main/java/com/lhg/overseasystem/certification/domain/UserCertification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/AccountMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/CertificationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/CertificationMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/UserRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-system/src/main/resources/mapper/overseasystem/UserRoleMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/overseaSql/createTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/overseaSql/createTable.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,8 +51,8 @@
       <list>
         <option value="Enum" />
         <option value="spring-beans.schema" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -246,7 +118,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.40344828" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -256,6 +128,9 @@
       <recent name="E:\zzzxy_project\OverSeasPurchasing\oversea-business\src\main\java\com\lhg\overseabusiness\warehouse" />
       <recent name="E:\zzzxy_project\OverSeasPurchasing\oversea-business\src\main\java\com\lhg\overseabusiness\shop" />
       <recent name="E:\zzzxy_project\OverSeasPurchasing\oversea-business\src\main\java\com\lhg\overseabusiness\budget" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\zzzxy_project\OverSeasPurchasing\oversea-system\src\main\resources\mapper\overseasystem" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.lhg" />
@@ -344,7 +219,8 @@
       <workItem from="1684751942690" duration="1315000" />
       <workItem from="1684855878297" duration="561000" />
       <workItem from="1684856487060" duration="3906000" />
-      <workItem from="1684932107588" duration="18389000" />
+      <workItem from="1684932107588" duration="18923000" />
+      <workItem from="1684975278868" duration="15037000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1681300437832</created>
@@ -402,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683638681273</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="新增purchasng、product、business、logistics模块及其相关类；&#10;完成系统相关类的基本逻辑实现">
+      <created>1684950955692</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684950955692</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +311,8 @@
     <MESSAGE value="新增：&#10;日志配置文件：logback-spring.xml&#10;mybatis-匹配***&#10;lombok依赖&#10;&#10;使用lombok注解，日志无需定义LoggerFactory" />
     <MESSAGE value="新增封装返回前端值；pageHelper分页；user基本增删改查" />
     <MESSAGE value="系统用户表sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="系统用户表sql" />
+    <MESSAGE value="新增purchasng、product、business、logistics模块及其相关类；&#10;完成系统相关类的基本逻辑实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增purchasng、product、business、logistics模块及其相关类；&#10;完成系统相关类的基本逻辑实现" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

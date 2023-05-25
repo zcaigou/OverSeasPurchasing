@@ -2,6 +2,70 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseaproduct.product.mapper.ProductDiagramMapper">
 
+    <resultMap id="DiagramResult" type="ProductDiagram">
+        <id property="diagramId" column="diagram_id"/>
+        <result property="productId" column="product_id"/>
+        <result property="diagramType" column="diagram_type"/>
+        <result property="type" column="type"/>
+        <result property="diagramInfo" column="diagram_info"/>
+    </resultMap>
+
+    <sql id="selectDiagram">
+        select product_id, diagram_id, diagram_type, type, diagram_info from product_diagram
+    </sql>
+
+    <sql id="whereDiagram">
+        <if test=" productId!=null and productId!=''"> AND product_id = #{productId}</if>
+        <if test=" diagramType!=null and diagramType!=''">AND diagram_type = #{diagramType}</if>
+        <if test=" type!=null and type!=''">AND type = #{type}</if>
+
+    </sql>
+
+    <!-- 条件查询商品图信息 -->
+    <select id="selectDiagramList" resultMap="DiagramResult">
+        <include refid="selectDiagram"/>
+        <where>
+            <include refid="whereDiagram"/>
+        </where>
+    </select>
+
+    <!-- 根据diagramId查询商品图信息 -->
+    <select id="selectDiagramByDiagramId" resultMap="DiagramResult">
+        <include refid="selectDiagram"/>
+        where = #{diagramId}
+    </select>
+
+    <!-- 新增商品图信息 -->
+    <insert id="insertDiagram">
+        insert into  product_diagram(product_id, diagram_id, diagram_type, type, diagram_info
+        ) values (#{productId},#{diagramId},#{digramType},#{type},#{diagramInfo})
+    </insert>
+
+    <!-- 更改商品图信息 -->
+    <update id="updateDiagram">
+        update product_diagram
+        <set>
+            <if test=" productId!=null and productId!=''">product_id = #{productId},</if>
+            <if test=" diagramType!=null and diagramType!=''">diagram_type = #{diagramType},</if>
+            <if test=" type!=null and type!=''">type = #{type},</if>
+            diagram_info = #{digramInfo}
+        </set>
+        where diagram_id= #{diagramId}
+    </update>
+
+    <!-- 根据diagramId删除商品图信息 -->
+    <delete id="deleteDiagramByDiagramId">
+        delete from product_diagram
+            where diagram_id= #{diagramId}
+    </delete>
+
+    <!-- 根据productId删除商品图信息 -->
+    <delete id="deleteDiagramByProductId">
+        delete from product_diagram
+        where product_id= #{productId}
+    </delete>
+
+    <!-- -->
 </mapper>

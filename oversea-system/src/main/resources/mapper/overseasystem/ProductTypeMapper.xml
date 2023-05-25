@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhg.overseasystem.producttype.mapper.ProductTypeMapper">
+
+    <resultMap id="ProductTypeResult" type="ProductType">
+        <id property="typeId" column="type_id"/>
+        <result property="typeName" column="type_name"/>
+        <result property="typePid" column="type_pid"/>
+        <result property="typePname" column="type_pname"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <sql id="selectProductType">
+        select t.type_id, t.type_name, t.type_pid, t.create_time, t.create_by, t.update_time, t.update_by, t.remark,p.type_name as type_pname
+        from product_type t
+        left join product_type p on p.type_id = t.type_pid
+    </sql>
+
+    <sql id="whereProductType">
+        <if test=" typeName!=null and typeName!=''"> AND t.type_name like concat ('%',#{typeName},'%')</if>
+        <if test=" typePid!=null and typePid!=''">AND t.type_pid = #{typePid}</if>
+        <if test=" typePname!=null and typePname!=''">AND p.type_pname like concat('%',#{typePname},'%')</if>>
+        <if test=" remark!=null and remark!=''">AND t.remark like concat('%',#{remark},'%')</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND t.create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND t.create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询商品类型信息 -->
+    <select id="selectProductTypeList" resultMap="ProductTypeResult">
+        <include refid="selectProductType"/>
+        <where>
+            <include refid="whereProductType"/>
+        </where>
+    </select>
+
+    <!-- 根据typeId查询商品类型信息 -->
+    <select id="selectProductTypeByTypeId" resultMap="ProductTypeResult">
+        <include refid="selectProductType"/>
+        where type_id= #{typeId}
+    </select>
+
+    <!-- 新增商品类型信息 -->
+    <insert id="insertProductType">
+        insert into  product_type(
+        <if test=" typeId!=null and typeId!=''">type_id,</if>
+        <if test=" typeName!=null and typeName!=''">type_name,</if>
+        <if test=" typePid!=null and typePid!=''">type_pid ,</if>
+        <if test="createBy !=null and createBy !=''">create_by,</if>
+        <if test=" remark!=null and remark!=''">remark,</if>
+        create_time
+        ) values (
+        <if test=" typeId!=null and typeId!=''">#{typeId},</if>
+        <if test=" typeName!=null and typeName!=''">#{typeName},</if>
+        <if test=" typePid!=null and typePid!=''">#{typePid},</if>
+        <if test="createBy !=null and createBy !=''">#{createBy},</if>
+        <if test=" remark!=null and remark!=''">#{remark},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更改商品类型信息 -->
+    <update id="updateProductType">
+        update product_type
+        <set>
+            <if test=" typeName!=null and typeName!=''">type_name = #{typeName},</if>
+            <if test=" typePid!=null and typePid!=''">type_pid = #{typePid},</if>
+            <if test=" updateBy !=null and updateBy !=''">update_by = #{updateBy},</if>
+            <if test=" remark!=null and remark!=''">remark,</if>
+            update_time = sysdate()
+        </set>
+        where type_id= #{typeId}
+    </update>
+
+    <!-- 根据typeId删除商品类型信息 -->
+    <delete id="deleteProductTypeByTypeId">
+        delete from product_type
+        where type_id= #{typeId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
+
+</mapper>

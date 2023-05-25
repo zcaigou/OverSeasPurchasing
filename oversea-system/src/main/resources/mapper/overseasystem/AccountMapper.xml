@@ -15,10 +15,10 @@
     </sql>
 
     <sql id = "whereAccount">
-        <if test=" userUri!=null and userUri!=''"> user_uri= #{userUri}</if>
-        <if test=" accountId!=null and accountId!=''"> account_id= #{accountId}</if>
-        <if test=" accountMoney!=null and accountMoney!=''"> account_money= #{accountMoney}</if>
-        <if test=" realName!=null and realName!=''"> real_name= #{realName}</if>
+        <if test=" userUri!=null and userUri!=''"> AND user_uri= #{userUri}</if>
+        <if test=" accountId!=null and accountId!=''">AND  account_id= #{accountId}</if>
+        <if test=" accountMoney!=null and accountMoney!=''">AND  account_money= #{accountMoney}</if>
+        <if test=" realName!=null and realName!=''"> AND real_name= #{realName}</if>
     </sql>
 
     <!-- 条件查询个人账户信息 -->

@@ -2,6 +2,115 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseaproduct.brand.mapper.BrandMapper">
+    <resultMap id="BrandResult" type="Brand">
+        <id property="brandId" column="brand_id" />
+        <result property="brandName" column="brand_name" />
+        <result property="brandOwner" column="brand_owner" />
+        <result property="registerNo" column="register_no" />
+        <result property="brandType" column="brand_type" />
+        <result property="registerStatus" column="register_status" />
+        <result property="createTime" column="create_time" />
+        <result property="createBy" column="create_by" />
+        <result property="updateTime" column="update_time" />
+        <result property="updateBy" column="update_by" />
+        <result property=" remark" column="remark" />
+    </resultMap>
+    
+    <sql id="selectBrand">
+        select brand_id, brand_name, brand_owner, register_no, brand_type, create_time, create_by, update_by, update_time, register_status, remark from purchasing_brand
+    </sql>
+
+    <sql id="whereBrand">
+        <if test=" brandName!=null and brandName !=''"> AND brand_name like concat('%' , #{brandName} ,'%') </if>
+        <if test=" brandOwner!=null and brandOwner !=''">AND  brand_owner like concat ('%', #{brandOwner},'%') </if>
+        <if test=" registerNo!=null and registerNo!=''"> AND register_no= #{registerNo}</if>
+        <if test=" brandType!=null and brandType!=''">AND brand_type = #{brandType}</if>
+        <if test=" createBy!=null and createBy !=''">AND  create_by like concat('%' , #{createBy} ,'%')</if>
+        <if test=" updateBy!=null and updateBy!=''"> AND update_by like concat('%', #{updateBy},'%')</if>
+        <if test=" registerStatus!=null and registerStatus !=''"> AND register_staus = #{registerStatus}</if>
+        <if test=" remark!=null and remark!=''">AND  remark like concat('%',#{remark},'%')</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND u.create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND u.create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+    <!--  条件查询品牌信息-->
+    <select id="selectBrandList" resultMap="BrandResult">
+        <include refid="selectBrand" />
+        <where>
+            <include refid="whereBrand"/>
+        </where>
+    </select>
+
+    <!--  根据brandId查询品牌信息-->
+    <select id="selectBrandByBrandId" resultMap="BrandResult">
+        <include refid="selectBrand" />
+        where brand_id = #{brandId}
+    </select>
+
+    <!--  新增品牌信息-->
+    <insert id="insertBrand">
+        insert into purchasing_brand (
+        <if test="brandId !=null and brandId !=''">brand_id ,</if>
+        <if test=" brandName!=null and brandName !=''"> brand_name  ,</if>
+        <if test=" brandOwner!=null and brandOwner !=''"> brand_owner, </if>
+        <if test=" registerNo!=null and registerNo!=''"> register_no,</if>
+        <if test=" brandType!=null and brandType!=''">brand_type ,</if>
+        <if test=" createBy!=null and createBy!=''"> create_by ,</if>
+        <if test=" registerStatus!=null and registerStatus !=''"> register_status,</if>
+        <if test=" remark!=null and remark!=''"> remark ,</if>
+        create_time
+        ) values (
+        <if test="brandId !=null and brandId !=''"> #{brandId} ,</if>
+        <if test=" brandName!=null and brandName !=''"> brand_name = #{brandName} ,</if>
+        <if test=" brandOwner!=null and brandOwner !=''"> brand_owner =#{brandOwner}, </if>
+        <if test=" registerNo!=null and registerNo!=''"> register_no= #{registerNo},</if>
+        <if test=" brandType!=null and brandType!=''">brand_type = #{brandType},</if>
+        <if test=" createBy!=null and createBy!=''">create_by =#{createBy},</if>
+        <if test=" registerStatus!=null and registerStatus !=''"> #{registerStatus},</if>
+        <if test=" remark!=null and remark!=''"> remark = #{remark},</if>
+                  sysdate()
+        )
+    </insert>
+
+    <!--  更改品牌信息-->
+    <update id="updateBrand">
+        update purchasing_brand
+        <set>
+            <if test=" brandName!=null and brandName !=''"> brand_name = #{brandName} ,</if>
+            <if test=" brandOwner!=null and brandOwner !=''"> brand_owner =#{brandOwner}, </if>
+            <if test=" registerNo!=null and registerNo!=''"> register_no= #{registerNo},</if>
+            <if test=" brandType!=null and brandType!=''">brand_type = #{brandType},</if>
+            <if test=" updateBy!=null and updateBy!=''"> update_by =#{updateBy},</if>
+            <if test=" registerStatus!=null and registerStatus !=''"> register_status = #{registerStatus},</if>
+            <if test=" remark!=null and remark!=''"> remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where brand_id = #{brandId}
+    </update>
+
+    <!--  根据brandId删除品牌信息-->
+    <delete id="deleteBrandByBrandId">
+        delete from purchasing_brand where brand_id = #{brandId}
+    </delete>
+
+    <!--  品牌信息-->
+
+
+    <!--  品牌信息-->
+
+    <!--  品牌信息-->
+
+    <!--  品牌信息-->
+
+
+
+
 
 </mapper>

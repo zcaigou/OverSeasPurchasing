@@ -8,7 +8,7 @@ public class UserCertification  extends BaseEntity {
 
     private String userUri;
 
-    private String name;
+    private String cname;
 
     private String idType;
 
@@ -26,12 +26,12 @@ public class UserCertification  extends BaseEntity {
         this.userUri = userUri;
     }
 
-    public String getName() {
-        return name;
+    public String getcname() {
+        return cname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setcname(String cname) {
+        this.cname = cname;
     }
 
     public String getIdType() {
@@ -70,7 +70,7 @@ public class UserCertification  extends BaseEntity {
     public String toString() {
         return "UserCertification{" +
                 "userUri='" + userUri + '\'' +
-                ", name='" + name + '\'' +
+                ", cname='" + cname + '\'' +
                 ", idType='" + idType + '\'' +
                 ", idNumber='" + idNumber + '\'' +
                 ", idCardFront=" + Arrays.toString(idCardFront) +

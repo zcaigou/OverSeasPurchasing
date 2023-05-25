@@ -13,8 +13,8 @@
     </sql>
 
     <sql id ="whereUserRole">
-        <if test =" roleId != null and roleId !=''"> role_id= #{roleId} </if>
-        <if test =" userUri != null and userUri!=''"> user_uri = #{userUri} </if>
+        <if test =" roleId != null and roleId !=''"> AND role_id= #{roleId} </if>
+        <if test =" userUri != null and userUri!=''"> AND user_uri = #{userUri} </if>
     </sql>
 
     <!-- 用户-角色条件查询 -->

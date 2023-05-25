@@ -2,6 +2,142 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseaproduct.product.mapper.ProductMapper">
 
+    <resultMap id="ProductResult" type="Product">
+        <id property="productId" column="product_id"/>
+        <result property="productName" column="product_name"/>
+        <result property="productDetail" column="product_detail"/>
+        <result property="productType" column="product_type"/>
+        <result property="brandId" column="brand_id"/>
+        <result property="articleNo" column="article_no"/>
+        <result property="producer" column="producer"/>
+        <result property="shopType" column="shop_type"/>
+        <result property="listingTime" column="listing_time"/>
+        <result property="productStatus" column="product_status"/>
+        <result property="isExpressFee" column="is_express_fee"/>
+        <result property="expressFee" column="express_fee"/>
+        <result property="shopId" column="shop_id"/>
+        <result property="serviceId" column="service_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <sql id="selectProduct">
+        select product_id, product_name, product_detail, product_type, brand_id, article_no, producer, shop_type, listing_time, product_status, is_express_fee, express_fee, shop_id, service_id, create_time, update_time, remark
+        from purchasing_product
+    </sql>
+
+    <sql id="whereProduct">
+        <if test=" productName!=null and productName!=''">AND product_name like concat('%',#{productName},'%')</if>
+        <if test=" productDetail!=null and productDetail!=''">AND product_detail like concat('%',#{productDetail},'%')</if>
+        <if test=" productType!=null and productType!=''">AND product_type = #{productType}</if>
+        <if test=" brandId!=null and brandId!=''">AND brand_id = #{brandId}</if>
+        <if test=" articleNo!=null and articleNo!=''">AND article_no = #{articleNo}</if>
+        <if test=" producer!=null and producer!=''">AND producer = #{producer}</if>
+        <if test=" shopType!=null and shopType!=''">AND shop_type = #{shopType}</if>
+        <if test=" listingTime!=null ">AND listing_time = #{listingTime}</if>
+        <if test=" productStatus!=null and productStatus!=''">AND product_status = #{productStatus}</if>
+        <if test=" isExpressFee!=null and isExpressFee!=''">AND is_express_fee = #{isExpressFee}</if>
+        <if test=" expressFee!=null ">AND express_fee = #{expressFee}</if>
+        <if test=" shopId!=null and shopId!=''">AND shop_id = #{shopId}</if>
+        <if test=" serviceId!=null and serviceId!=''">AND service_id = #{serviceId}</if>
+        <if test=" remark!=null and remark!=''">AND remark like concat('%',#{remark},'%')</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND u.create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND u.create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询商品信息 -->
+    <select id="selectProductList" resultMap="ProductResult">
+        <include refid="selectProduct"/>
+        <where>
+            <include refid="whereProduct"/>
+        </where>
+    </select>
+
+    <!-- 根据productId查询商品信息 -->
+    <select id="selectProductByProductId" resultMap="ProductResult">
+        <include refid="selectProduct"/>
+        where product_id = #{productId}
+    </select>
+
+    <!-- 新增商品信息 -->
+    <insert id="insertProduct">
+        insert into purchasing_product (
+        <if test="productId !=null and productId !=''">product_id ,</if>
+        <if test=" productName!=null and productName!=''">product_name ,</if>
+        <if test=" productDetail!=null and productDetail!=''">product_detail ,</if>
+        <if test=" productType!=null and productType!=''">product_type ,</if>
+        <if test=" brandId!=null and brandId!=''">brand_id ,</if>
+        <if test=" articleNo!=null and articleNo!=''">article_no,</if>
+        <if test=" producer!=null and producer!=''">producer ,</if>
+        <if test=" shopType!=null and shopType!=''">shop_type,</if>
+        <if test=" listingTime!=null ">listing_time ,</if>
+        <if test=" productStatus!=null and productStatus!=''">product_status,</if>
+        <if test=" isExpressFee!=null and isExpressFee!=''">is_express_fee ,</if>
+        <if test=" expressFee!=null ">express_fee ,</if>
+        <if test=" shopId!=null and shopId!=''">shop_id,</if>
+        <if test=" serviceId!=null and serviceId!=''">service_id ,</if>
+        <if test=" remark!=null and remark!=''">remark ,</if>
+        create_time
+        ) values (
+        <if test="productId !=null and productId !=''">#{product_id} ,</if>
+        <if test=" productName!=null and productName!=''">#{productName},</if>
+        <if test=" productDetail!=null and productDetail!=''">productDetail},</if>
+        <if test=" productType!=null and productType!=''">#{productType},</if>
+        <if test=" brandId!=null and brandId!=''">#{brandId},</if>
+        <if test=" articleNo!=null and articleNo!=''">#{articleNo},</if>
+        <if test=" producer!=null and producer!=''">#{producer},</if>
+        <if test=" shopType!=null and shopType!=''">#{shopType},</if>
+        <if test=" listingTime!=null ">#{listingTime},</if>
+        <if test=" productStatus!=null and productStatus!=''">#{productStatus},</if>
+        <if test=" isExpressFee!=null and isExpressFee!=''">#{isExpressFee},</if>
+        <if test=" expressFee!=null ">#{expressFee},</if>
+        <if test=" shopId!=null and shopId!=''">#{shopId},</if>
+        <if test=" serviceId!=null and serviceId!=''">#{serviceId},</if>
+        <if test=" remark!=null and remark!=''">#{remark},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更改商品信息 -->
+    <update id="updateProduct">
+        update purchasing_product
+        <set>
+            <if test=" productName!=null and productName!=''">product_name = #{productName},</if>
+            <if test=" productDetail!=null and productDetail!=''">product_detail =#{productDetail},</if>
+            <if test=" productType!=null and productType!=''">product_type = #{productType},</if>
+            <if test=" brandId!=null and brandId!=''">brand_id = #{brandId},</if>
+            <if test=" articleNo!=null and articleNo!=''">article_no = #{articleNo},</if>
+            <if test=" producer!=null and producer!=''">producer = #{producer},</if>
+            <if test=" shopType!=null and shopType!=''">shop_type = #{shopType},</if>
+            <if test=" listingTime!=null ">listing_time = #{listingTime},</if>
+            <if test=" productStatus!=null and productStatus!=''">product_status = #{productStatus},</if>
+            <if test=" isExpressFee!=null and isExpressFee!=''">is_express_fee = #{isExpressFee},</if>
+            <if test=" expressFee!=null ">express_fee = #{expressFee},</if>
+            <if test=" shopId!=null and shopId!=''">shop_id = #{shopId},</if>
+            <if test=" serviceId!=null and serviceId!=''">service_id = #{serviceId},</if>
+            <if test=" remark!=null and remark!=''">remark =#{remark},</if>
+        update_time = sysdate()
+        </set>
+        where product_id = #{productId}
+    </update>
+
+    <!-- 根据productId删除商品信息 -->
+    <delete id="deleteProductByProductId">
+        delete from purchasing_product
+        where product_id = #{productId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 </mapper>
