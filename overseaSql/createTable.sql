@@ -75,7 +75,6 @@ CREATE TABLE `purchasing_shop`  (
                                     `shop_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '店铺名称',
                                     `user_uri` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '店主id',
                                     `shop_type` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '店铺类型',
-                                    `create_time` datetime(0) NOT NULL COMMENT '创建时间',
                                     `shop_brand` blob NULL COMMENT '店铺商标',
                                     `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '联系地址',
                                     `telephone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '联系电话',
@@ -83,10 +82,17 @@ CREATE TABLE `purchasing_shop`  (
                                     `shop_submittal_one` blob NULL COMMENT '相关提交材料1',
                                     `shop_submittal_two` blob NULL COMMENT '相关提交材料2',
                                     `shop_submittal_three` blob NULL COMMENT '相关提交材料3',
+                                    `create_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建者',
+                                    `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+                                    `update_by` datetime(0) NULL DEFAULT NULL COMMENT '更新者',
+                                    `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+                                    `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
                                     PRIMARY KEY (`shop_id`) USING BTREE,
                                     INDEX `shop_fk`(`user_uri`) USING BTREE,
                                     CONSTRAINT `shop_fk` FOREIGN KEY (`user_uri`) REFERENCES `sys_user` (`user_uri`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代购店铺表' ROW_FORMAT = Dynamic;
+
+SET FOREIGN_KEY_CHECKS = 1;
 
 -- ----------------------------
 -- 商品表：purchasing_product
@@ -244,11 +250,15 @@ CREATE TABLE `purchasing_warehouse`  (
                                          `shop_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '所属店铺',
                                          `owner_user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '负责人',
                                          `telephone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '联系电话',
+                                         `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+                                         `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+                                         `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
                                          PRIMARY KEY (`warehouse_id`) USING BTREE,
                                          INDEX `warehouse_shopid_fk`(`shop_id`) USING BTREE,
                                          CONSTRAINT `warehouse_shopid_fk` FOREIGN KEY (`shop_id`) REFERENCES `purchasing_shop` (`shop_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '店铺仓库表' ROW_FORMAT = Dynamic;
 
+SET FOREIGN_KEY_CHECKS = 1;
 -- ----------------------------
 -- 购物订单表：purchasing_order
 -- ----------------------------

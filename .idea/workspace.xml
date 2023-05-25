@@ -4,46 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bb5bd12-0025-480d-802a-cabce435433d" name="变更" comment="更新项目建表sql&#10;新增product模块部分对象实现">
+    <list default="true" id="1bb5bd12-0025-480d-802a-cabce435433d" name="变更" comment="新增product模块相关类实现方法&#10;修改product_specifications表结构">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2282d724-29d6-46bc-a5d0-acb03c7f737e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2282d724-29d6-46bc-a5d0-acb03c7f737e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/f/0ff329b751749636d9aee198107342e58414e12b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/2/22cca8a2d3612337069525c13bcdb2478f3c5ecc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2c4799ce3578c9a972a7d46834845b06f9f9ced2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2de7eb1b3d591c03ff75452c03de91f734da2f9c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3aac2c378cbd770e4a470e65f20066b8050056ed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/3/43b471491fe168007037bbc6a9b2abbf4fd3b3d1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/5/45c0f119596ae2810495ba6689e676119a7ab08f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4b40b6dabcfca93cf8841807e3096042ac135e3f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6ad52b550a7803d175bfe9a106aa10510271c6d3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/f/6fe21831876387483e2fdbb061711dce0869b187" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/4/744ee4fc4337ba3bd6868879642c2cc0969a7725" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/9755aa6be7b2107c48b711e0b4a814d38f436c3a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/bec41ba8efafd14bfa6b4d84c98e9ccb116d4571" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/b/cb4b10849a03938f397e94da7ddbb3abcd83133a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/6/d660225499b72d98ca751ffb87e4a4e00e42ac4e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/1/e1d7892581c458c40ba05e05c6034bd860dcd53c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1cf7694b260c21e6178c29b9a2f6cd112876e8cb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/7/278bdc5243986e4e2fd25b2ce03e1cdbaca0f46c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2cf07cc7c004712707f6b559a79716ecf158d829" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/2/32ee2c13af299ee2a509c4562832750d71c7391e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/1/41b0fc62b48f9438aa82786f373d53416b39620a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/56c14303879f3c86d32e7c0a8ee544972d22f4df" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/e/5eddf0e2895621420d4fcdd03c92ed30e80a94d1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/1/618bbb7a4f04c0732933117afe89be5fd74879b6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/f/6f2ca3ec91d4fac0f12c1dc16b6c12bf9ff7c6a7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/d/8d261de3f1a6076eb23e5942d52972837053ea8d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dc8c7c076be486d6bd0a7f48b7bc7d2d13bb99c0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/9/f99b339751ee85f0f4ffacfa1bca8007d11dd363" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/d/fdfd40fea035903ead3567f80fc157e6e0a2a9ec" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/domain/ProductReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/domain/ProductReview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/domain/ReviewImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/domain/ReviewImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/mapper/ProductReviewMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/mapper/ProductReviewMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/mapper/ReviewImageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/mapper/ReviewImageMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/IProductReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/IProductReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/IReviewImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/IReviewImageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/ProductReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/ProductReviewServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/ReviewImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/review/service/ReviewImageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/domain/AfterSaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/domain/AfterSaleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/mapper/AfterSaleServiceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/mapper/AfterSaleServiceMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/service/AfterSaleServiceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/service/AfterSaleServiceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/service/IAfterSaleServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/saleservice/service/IAfterSaleServiceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/domain/Specifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/domain/Specifications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/mapper/SpecificationsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/mapper/SpecificationsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/service/ISpecificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/service/ISpecificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/service/SpecificationsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/java/com/lhg/overseaproduct/specifications/service/SpecificationsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/AfterSaleServiceMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/AfterSaleServiceMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductReviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ProductReviewMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ReviewImageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/ReviewImageMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/SpecificationsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-product/src/main/resources/mapper.overseaproduct/SpecificationsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/domain/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/domain/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/mapper/BudgetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/mapper/BudgetMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/service/BudgetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/service/BudgetServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/service/IBudgetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/budget/service/IBudgetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/domain/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/domain/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/mapper/ShopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/mapper/ShopMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/service/IShopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/service/IShopService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/service/ShopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/shop/service/ShopServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/domain/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/domain/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/mapper/WarehouseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/mapper/WarehouseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/service/IWarehouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/service/IWarehouseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/service/WarehouseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/service/WarehouseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/resources/mapper.overseabusiness/BudgetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/resources/mapper.overseabusiness/BudgetMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/resources/mapper.overseabusiness/ShopMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/resources/mapper.overseabusiness/ShopMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oversea-business/src/main/resources/mapper.overseabusiness/WarehouseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oversea-business/src/main/resources/mapper.overseabusiness/WarehouseMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/overseaSql/createTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/overseaSql/createTable.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +63,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/oversea-business/src/main/java/com/lhg/overseabusiness/warehouse/service/WarehouseServiceImpl.java" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -225,7 +220,8 @@
       <workItem from="1684855878297" duration="561000" />
       <workItem from="1684856487060" duration="3906000" />
       <workItem from="1684932107588" duration="18923000" />
-      <workItem from="1684975278868" duration="26348000" />
+      <workItem from="1684975278868" duration="27228000" />
+      <workItem from="1685016117264" duration="5430000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1681300437832</created>
@@ -297,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684995088815</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="新增product模块相关类实现方法&#10;修改product_specifications表结构">
+      <created>1685006536406</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685006536406</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,11 +309,41 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="0633dd12-4fd1-4600-959e-a1f68f744913">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="0633dd12-4fd1-4600-959e-a1f68f744913" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>
@@ -325,7 +358,8 @@
     <MESSAGE value="系统用户表sql" />
     <MESSAGE value="新增purchasng、product、business、logistics模块及其相关类；&#10;完成系统相关类的基本逻辑实现" />
     <MESSAGE value="更新项目建表sql&#10;新增product模块部分对象实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新项目建表sql&#10;新增product模块部分对象实现" />
+    <MESSAGE value="新增product模块相关类实现方法&#10;修改product_specifications表结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增product模块相关类实现方法&#10;修改product_specifications表结构" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

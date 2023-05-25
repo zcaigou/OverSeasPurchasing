@@ -2,6 +2,129 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseabusiness.shop.mapper.ShopMapper">
 
+    <resultMap id="ShopResult" type="Shop">
+        <id property="shopId" column="shopId"/>
+        <result property="shopName" column="shopName"/>
+        <result property="userUri" column="userUri"/>
+        <result property="shopType" column="shopType"/>
+        <result property="shopBrand" column="shopBrand"/>
+        <result property="address" column="address"/>
+        <result property="telephone" column="telephone"/>
+        <result property="shopStatus" column="shop_status"/>
+        <result property="shopSubmittalOne" column="shop_submittal_one"/>
+        <result property="shopSubmittalTwo" column="shop_submittal_two"/>
+        <result property="shopSubmittalThree" column="shop_submittal_three"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="remark" column="remark"/>
+
+    </resultMap>
+
+    <sql id="selectShop">
+        select shop_id, shop_name, user_uri, shop_type, shop_brand, address, telephone, shop_status, shop_submittal_one, shop_submittal_two, shop_submittal_three, create_by, create_time, update_by, update_time, remark
+        from purchasing_shop
+    </sql>
+
+    <sql id="whereShop">
+        <if test=" shopName!=null and shopName!=''">AND shop_name like concat('%',#{shopName},'%')</if>
+        <if test=" userUri!=null and userUri!=''">AND user_uri = #{userUri}</if>
+        <if test=" shopType!=null and shopType!=''">AND shop_type = #{shopType}</if>
+        <if test=" address!=null and address!=''">AND address like concat('%',#{address},'%')</if>
+        <if test=" telephone!=null and telephone!=''">AND telephone = #{telephone}</if>
+        <if test=" shopStatus!=null and shopStatus!=''">AND shop_status = #{shopStatus}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询店铺信息 -->
+    <select id="selectShopList" resultMap="ShopResult">
+        <include refid="selectShop"/>
+        <where>
+            <include refid="whereShop"/>
+        </where>
+    </select>
+
+    <!-- 根据shopId查询店铺信息 -->
+    <select id="selectShopByShopId" resultMap="ShopResult">
+        <include refid="selectShop"/>
+        where shop_id= #{shopId}
+    </select>
+
+    <!-- 新增店铺信息 -->
+    <insert id="insertShop">
+        insert into purchasing_shop(
+        <if test=" shopId!=null and shopId!=''">shop_id ,</if>
+        <if test=" shopName!=null and shopName!=''">shop_name ,</if>
+        <if test=" userUri!=null and userUri!=''">user_uri ,</if>
+        <if test=" shopType!=null and shopType!=''">shop_type ,</if>
+        <if test=" shopBrand!=null and shopBrand!=''">shop_brand ,</if>
+        <if test=" address!=null and address!=''">address ,</if>
+        <if test=" telephone!=null and telephone!=''">telephone,</if>
+        <if test=" shopStatus!=null and shopStatus!=''">shop_status,</if>
+        <if test=" shopSubmittalOne!=null and shopSubmittalOne!=''">shop_submittal_one,</if>
+        <if test=" shopSubmittalTwo!=null and shopSubmittalTwo!=''">shop_submittal_two ,</if>
+        <if test=" shopSubmittalThree!=null and shopSubmittalThree!=''">shop_submittal_three ,</if>
+        <if test=" remark!=null and remark!=''">remark ,</if>
+        <if test=" createBy!=null and createBy!=''">create_by,</if>
+        create_time
+        ) values (
+        <if test=" shopId!=null and shopId!=''">#{shopId},</if>
+        <if test=" shopName!=null and shopName!=''">#{shopName},</if>
+        <if test=" userUri!=null and userUri!=''">#{userUri},</if>
+        <if test=" shopType!=null and shopType!=''">#{shopType},</if>
+        <if test=" shopBrand!=null and shopBrand!=''">#{shopBrand},</if>
+        <if test=" address!=null and address!=''">#{address} ,</if>
+        <if test=" telephone!=null and telephone!=''">#{telephone} ,</if>
+        <if test=" shopStatus!=null and shopStatus!=''">shop_status ,</if>
+        <if test=" shopSubmittalOne!=null and shopSubmittalOne!=''">#{shopSubmittalOne},</if>
+        <if test=" shopSubmittalTwo!=null and shopSubmittalTwo!=''">s#{shopSubmittalTwo},</if>
+        <if test=" shopSubmittalThree!=null and shopSubmittalThree!=''">#{shopSubmittalThree},</if>
+        <if test=" remark!=null and remark!=''"> #{remark},</if>
+        <if test=" createBy!=null and createBy!=''">#{createBy},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更改店铺信息 -->
+    <update id="updateShop">
+        update purchasing_shop
+        <set>
+            <if test=" shopId!=null and shopId!=''">shop_id = #{shopId},</if>
+            <if test=" shopName!=null and shopName!=''">shop_name = #{shopName},</if>
+            <if test=" userUri!=null and userUri!=''">user_uri = #{userUri},</if>
+            <if test=" shopType!=null and shopType!=''">shop_type = #{shopType},</if>
+            <if test=" shopBrand!=null and shopBrand!=''">shop_brand = #{shopBrand},</if>
+            <if test=" address!=null and address!=''">address = #{address} ,</if>
+            <if test=" telephone!=null and telephone!=''">telephone = #{telephone},</if>
+            <if test=" shopStatus!=null and shopStatus!=''">shop_status = #{shopStatus},</if>
+            <if test=" shopSubmittalOne!=null and shopSubmittalOne!=''">shop_submittal_one = #{shopSubmittalOne},</if>
+            <if test=" shopSubmittalTwo!=null and shopSubmittalTwo!=''">shop_submittal_two = #{shopSubmittalTwo},</if>
+            <if test=" shopSubmittalThree!=null and shopSubmittalThree!=''">shop_submittal_three = #{shopSubmittalThree},</if>
+            <if test=" remark!=null and remark!=''">remark = #{remark},</if>
+            <if test=" updateBy!=null and updateBy!=''">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where shop_id= #{shopId}
+    </update>
+
+    <!-- 根据shopId删除店铺信息 -->
+    <delete id="deleteShopByShopId">
+        delete from purchasing_shop
+            where shop_id= #{shopId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 </mapper>

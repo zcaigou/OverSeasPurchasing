@@ -2,6 +2,117 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseabusiness.budget.mapper.BudgetMapper">
 
+    <resultMap id="BudgetResult" type="Budget">
+        <id property="payId" column="pay_id"/>
+        <result property="payType" column="pay_type"/>
+        <result property="orderId" column="order_id"/>
+        <result property="money" column="money"/>
+        <result property="payStatus" column="pay_status"/>
+        <result property="fromAccount" column="from_account"/>
+        <result property="fromBy" column="from_by"/>
+        <result property="toAccount" column="to_account"/>
+        <result property="toBy" column="to_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
+
+    </resultMap>
+
+    <sql id="selectBudget">
+        select pay_id, pay_type, order_id, money, pay_status, from_account, from_by, to_account, to_by, create_time, update_time, remark
+        from purchasing_income
+    </sql>
+
+    <sql id="whereBudget">
+        <if test=" payType!=null and payType!=''">AND pay_type = #{payType}</if>
+        <if test=" orderId!=null and orderId!=''">AND order_id = #{orderId}</if>
+        <if test=" money!=null and money!=''">AND money = #{money}</if>
+        <if test=" payStatus!=null and payStatus!=''">AND pay_status = #{payStatus}</if>
+        <if test=" fromAccount!=null and fromAccount!=''">AND from_account = #{fromAccount}</if>
+        <if test=" fromBy!=null and fromBy!=''">AND from_by = #{fromBy}</if>
+        <if test=" toAccount!=null andtoAccount !=''">AND to_account = #{toAccount}</if>
+        <if test=" toBy!=null and toBy!=''">AND to_by = #{toBy}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询收支信息 -->
+    <select id="selectBudgetList" resultMap="BudgetResult">
+        <include refid="selectBudget"/>
+        <where>
+            <include refid="whereBudget"/>
+        </where>
+    </select>
+
+    <!-- 根据payId查询收支信息 -->
+    <select id="selectBudgetByPayId" resultMap="BudgetResult">
+        <include refid="selectBudget"/>
+        where pay_id= #{payId}
+    </select>
+
+    <!-- 新增收支信息 -->
+    <insert id="insertBudget">
+        insert into  purchasing_income(
+        <if test=" payId!=null and payId!=''">pay_id ,</if>
+        <if test=" payType!=null and payType!=''">pay_type ,</if>
+        <if test=" orderId!=null and orderId!=''">order_id, </if>
+        <if test=" money!=null and money!=''">money ,</if>
+        <if test=" payStatus!=null and payStatus!=''">pay_status ,</if>
+        <if test=" fromAccount!=null and fromAccount!=''">from_account ,</if>
+        <if test=" fromBy!=null and fromBy!=''">from_by ,</if>
+        <if test=" toAccount!=null andtoAccount !=''">to_account ,</if>
+        <if test=" toBy!=null and toBy!=''">to_by ,</if>
+        <if test=" remark!=null and remark!=''">remark ,</if>
+        create_time
+        ) values (
+        <if test=" payId!=null and payId!=''"> #{payId},</if>
+        <if test=" payType!=null and payType!=''">#{payType},</if>
+        <if test=" orderId!=null and orderId!=''">#{orderId},</if>
+        <if test=" money!=null and money!=''"> #{money},</if>
+        <if test=" payStatus!=null and payStatus!=''">#{payStatus},</if>
+        <if test=" fromAccount!=null and fromAccount!=''">#{fromAccount},</if>
+        <if test=" fromBy!=null and fromBy!=''">#{fromBy},</if>
+        <if test=" toAccount!=null andtoAccount !=''">#{toAccount},</if>
+        <if test=" toBy!=null and toBy!=''">#{toBy},</if>
+        <if test=" remark!=null and remark!=''">#{remark},</if>
+                  sysdate()
+        )
+    </insert>
+
+    <!-- 更改收支信息 -->
+    <update id="updateBudget">
+        update purchasing_income
+        <set>
+            <if test=" payType!=null and payType!=''">pay_type = #{payType},</if>
+            <if test=" orderId!=null and orderId!=''">order_id = #{orderId},</if>
+            <if test=" money!=null and money!=''">money = #{money},</if>
+            <if test=" payStatus!=null and payStatus!=''">pay_status = #{payStatus},</if>
+            <if test=" fromAccount!=null and fromAccount!=''">from_account = #{fromAccount},</if>
+            <if test=" fromBy!=null and fromBy!=''">from_by = #{fromBy},</if>
+            <if test=" toAccount!=null andtoAccount !=''">to_account = #{toAccount},</if>
+            <if test=" toBy!=null and toBy!=''">to_by = #{toBy},</if>
+            <if test=" remark!=null and remark!=''">remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where pay_id= #{payId}
+    </update>
+
+    <!-- 根据删除收支信息 -->
+    <delete id="deleteBudgetByPayId">
+        delete from purchasing_income
+            where pay_id= #{payId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 </mapper>

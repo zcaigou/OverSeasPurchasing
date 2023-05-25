@@ -2,6 +2,106 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseabusiness.warehouse.mapper.WarehouseMapper">
+
+    <resultMap id="WarehouseResult" type="Warehouse">
+        <id property="warehouseId" column="warehouse_id"/>
+        <result property="warehouseName" column="warehouse_name"/>
+        <result property="address" column="address"/>
+        <result property="type" column="type"/>
+        <result property="shopId" column="shop_id"/>
+        <result property="ownerUser" column="owner_user"/>
+        <result property="telephone" column="telephone"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <sql id="selectWarehouse">
+        select warehouse_id, warehouse_name, address, type, shop_id, owner_user, telephone, create_time, update_time, remark
+        from purchasing_warehouse
+    </sql>
+
+    <sql id="whereWarehouse">
+        <if test=" warehouseName!=null and warehouseName!=''">AND warehouse_name like concat('%',#{warehouseName},'%')</if>
+        <if test=" address!=null and address!=''">AND address like concat('%',#{address},'%')</if>
+        <if test=" type!=null and type!=''">AND type = #{type}</if>
+        <if test=" shopId!=null and shopId!=''">AND shop_id = #shopId{}</if>
+        <if test=" ownerUser!=null and ownerUser!=''">AND owner_user like concat('%', #{ownerUser},'%')</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询仓库信息 -->
+    <select id="selectWarehouseList" resultMap="WarehouseResult">
+        <include refid="selectWarehouse"/>
+        <where>
+            <include refid="whereWarehouse"/>
+        </where>
+    </select>
+
+    <!-- 根据warehouseId查询仓库信息 -->
+    <select id="selectWarehouseByWarehouseId" resultMap="Result">
+        <include refid="selectWarehouse"/>
+        where warehouse_id= #{warehouseId}
+    </select>
+
+    <!-- 新增仓库信息 -->
+    <insert id="insertWarehouse">
+        insert into  purchasing_warehouse(
+        <if test=" warehouseId!=null and warehouseId!=''">warehouse_id ,</if>
+        <if test=" warehouseName!=null and warehouseName!=''">warehouse_name ,</if>
+        <if test=" address!=null and address!=''">address ,</if>
+        <if test=" type!=null and type!=''">type,</if>
+        <if test=" shopId!=null and shopId!=''">shop_id ,</if>
+        <if test=" ownerUser!=null and ownerUser!=''">owner_user ,</if>
+        <if test=" telephone!=null and telephone!=''">telephone ,</if>
+        <if test=" remark!=null and remark!=''">remark,</if>
+        create_time
+        ) values (
+        <if test=" warehouseId!=null and warehouseId!=''"> #{warehouseId},</if>
+        <if test=" warehouseName!=null and warehouseName!=''"> #{warehouseName},</if>
+        <if test=" address!=null and address!=''"> #{address},</if>
+        <if test=" type!=null and type!=''"> #{type},</if>
+        <if test=" shopId!=null and shopId!=''">#{shopId},</if>
+        <if test=" ownerUser!=null and ownerUser!=''">#{ownerUser},</if>
+        <if test=" telephone!=null and telephone!=''">#{telephone},</if>
+        <if test=" remark!=null and remark!=''">  #{remark},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更改仓库信息 -->
+    <update id="updateWarehouse">
+        update purchasing_warehouse
+        <set>
+            <if test=" warehouseName!=null and warehouseName!=''">warehouse_name  = #{warehouseName},</if>
+            <if test=" address!=null and address!=''">address = #{address},</if>
+            <if test=" type!=null and type!=''">type = #{type},</if>
+            <if test=" shopId!=null and shopId!=''">shop_id = #shopId{},</if>
+            <if test=" ownerUser!=null and ownerUser!=''">owner_user = #{ownerUser},</if>
+            <if test=" telephone!=null and telephone!=''">telephone = #{telephone},</if>
+            <if test=" remark!=null and remark!=''">remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where warehouse_id= #{warehouseId}
+    </update>
+
+    <!-- 根据warehouseId删除仓库信息 -->
+    <delete id="deleteWarehouseByWarehouseId">
+        delete from purchasing_warehouse
+            where warehouse_id= #{warehouseId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 
 </mapper>
