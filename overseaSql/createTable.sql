@@ -206,6 +206,10 @@ CREATE TABLE `product_specifications`  (
                                            `on_sale` int(0) NULL DEFAULT NULL COMMENT '正在出售数量',
                                            `purchase_place` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '采购地',
                                            `warehouse_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '所在仓库',
+                                           `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+                                           `create_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建者',
+                                           `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+                                           `update_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
                                            PRIMARY KEY (`specification_id`) USING BTREE,
                                            INDEX `spec_productid_fk`(`product_id`) USING BTREE,
                                            INDEX `spec_warehouseid_fk`(`warehouse_id`) USING BTREE,
@@ -213,6 +217,8 @@ CREATE TABLE `product_specifications`  (
                                            CONSTRAINT `spec_productid_fk` FOREIGN KEY (`product_id`) REFERENCES `purchasing_product` (`product_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
                                            CONSTRAINT `spec_warehouseid_fk` FOREIGN KEY (`warehouse_id`) REFERENCES `purchasing_warehouse` (`warehouse_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '商品规格信息表' ROW_FORMAT = Dynamic;
+
+SET FOREIGN_KEY_CHECKS = 1;
 
 -- ----------------------------
 -- 售后服务表：after_sale_service

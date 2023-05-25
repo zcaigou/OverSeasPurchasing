@@ -2,6 +2,123 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseaproduct.specifications.mapper.SpecificationsMapper">
+
+    <resultMap id="SpecificationsResult" type="Specifications">
+        <id property="specificationId" column="specification_id"/>
+        <result property="productId" column="product_id"/>
+        <result property="productSpecification" column="product_specification"/>
+        <result property="productNum" column="product_num"/>
+        <result property="productImage" column="product_image"/>
+        <result property="productPrice" column="product_price"/>
+        <result property="productStatus" column="product_status"/>
+        <result property="productRemainWarn" column="product_remain_warn"/>
+        <result property="productInventory" column="product_inventory"/>
+        <result property="onSale" column="on_sale"/>
+        <result property="purchasePlace" column="purchase_place"/>
+        <result property="warehourceId" column="warehouse_id"/>
+
+    </resultMap>
+
+    <sql id="selectSpecifications">
+        select specification_id, product_id, product_specification, product_num, product_image, product_price, product_status, product_remain_warn, product_inventory, on_sale, purchase_place, warehouse_id
+        from product_specifications
+    </sql>
+
+    <sql id="whereSpecifications">
+        <if test=" productId!=null and productId!=''">AND product_id = #{productId}</if>
+        <if test=" productSpecification!=null and productSpecification!=''">AND product_specification = #{productSpecification}</if>
+        <if test=" productNum!=null and productNum!=''">AND product_num = #{productNum}</if>
+        <if test=" productStatus!=null and productStatus!=''">AND product_status = #{productStatus}</if>
+        <if test=" productRemainWarn !=null and productRemainWarn!=''">AND product_remain_warn = #{productRemainWarn}</if>
+        <if test=" onSale!=null and onSale!=''">AND on_sale = #{onSale}</if>
+        <if test=" purchasePlace!=null and purchasePlace!=''">AND purchase_place = #{purchasePlace}</if>
+        <if test=" warehouseId!=null and warehouseId!=''">AND warehouse_id = #{warehouseId}</if>
+    </sql>
+
+
+    <!-- 条件查询商品描述信息 -->
+    <select id="selectSpecificationsList" resultMap="SpecificationsResult">
+        <include refid="selectSpecifications"/>
+        <where>
+            <include refid="whereSpecifications"/>
+        </where>
+    </select>
+
+    <!-- 根据specificationId查询商品描述信息 -->
+    <select id="selectSpecificationsBySpecificationId" resultMap="SpecificationsResult">
+        <include refid="selectSpecifications"/>
+        where specification_id = #{specificationId}
+    </select>
+
+    <!-- 新增商品描述信息 -->
+    <insert id="insertSpecifications">
+        insert into  product_specifications(
+        <if test=" specificationId!=null and specificationId!=''">specification_id ,</if>
+        <if test=" productId!=null and productId!=''">product_id ,</if>
+        <if test=" productSpecification!=null and productSpecification!=''">product_specification,</if>
+        <if test=" productNum!=null and productNum!=''">product_num ,</if>
+        <if test=" productPrice!=null ">product_price,</if>
+        <if test=" productImage!=null and productImage!=''">product_image ,</if>
+        <if test=" productStatus!=null and productStatus!=''">product_status ,</if>
+        <if test=" productRemainWarn !=null and productRemainWarn!=''">product_remain_warn,</if>
+        <if test=" productInventory!=null and productInventory!=''">product_inventory ,</if>
+        <if test=" onSale!=null and onSale!=''">on_sale ,</if>
+        <if test=" purchasePlace!=null and purchasePlace!=''">purchase_place ,</if>
+        <if test=" warehouseId!=null and warehouseId!=''">warehouse_id ,</if>
+        <if test=" createBy!=null and createBy!=''">create_by ,</if>
+        create_time
+        ) values (
+        <if test=" specificationId!=null and specificationId!=''">#{specificationId},</if>
+        <if test=" productId!=null and productId!=''">#{productId},</if>
+        <if test=" productSpecification!=null and productSpecification!=''">#{productSpecification},</if>
+        <if test=" productNum!=null and productNum!=''">#{productNum},</if>
+        <if test=" productPrice!=null ">#{productPrice},</if>
+        <if test=" productImage!=null and productImage!=''">#{productImage},</if>
+        <if test=" productStatus!=null and productStatus!=''">#{productStatus},</if>
+        <if test=" productRemainWarn !=null and productRemainWarn!=''"> #{productRemainWarn},</if>
+        <if test=" productInventory!=null and productInventory!=''">#{productInventory},</if>
+        <if test=" onSale!=null and onSale!=''">#{onSale},</if>
+        <if test=" purchasePlace!=null and purchasePlace!=''">#{purchasePlace},</if>
+        <if test=" warehouseId!=null and warehouseId!=''">#{warehouseId},</if>
+        <if test=" createBy!=null and createBy!=''">#{createBy},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更改商品描述信息 -->
+    <update id="updateSpecifications">
+        update product_specifications
+        <set>
+            <if test=" productSpecification!=null and productSpecification!=''">product_specification = #{productSpecification},</if>
+            <if test=" productNum!=null and productNum!=''">product_num = #{productNum},</if>
+            <if test=" productImage!=null and productImage!=''">product_image = #{productImage},</if>
+            <if test=" productPrice!=null ">product_price = #{productPrice},</if>
+            <if test=" productStatus!=null and productStatus!=''">product_status = #{productStatus},</if>
+            <if test=" productRemainWarn !=null and productRemainWarn!=''">product_remain_warn = #{productRemainWarn},</if>
+            <if test=" productInventory!=null and productInventory!=''">product_inventory = #{productInventory},</if>
+            <if test=" onSale!=null and onSale!=''">on_sale = #{onSale},</if>
+            <if test=" purchasePlace!=null and purchasePlace!=''">purchase_place = #{purchasePlace},</if>
+            <if test=" warehouseId!=null and warehouseId!=''">warehouse_id = #{warehouseId},</if>
+            <if test=" updateBy!=null and updateBy!=''">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where specification_id = #{specificationId}
+    </update>
+
+    <!-- 根据specificationId删除商品描述信息 -->
+    <delete id="deleteSpecificationsBySpecificationId">
+        delete from product_specifications
+            where specification_id = #{specificationId}
+    </delete>
+
+    <!-- 根据productId删除商品描述信息 -->
+    <delete id="deleteSpecificationsByProductId">
+        delete from product_specifications
+        where product_id = #{productId}
+    </delete>
+    <!-- -->
+
+    <!-- -->
 
 </mapper>

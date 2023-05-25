@@ -2,6 +2,63 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseaproduct.review.mapper.ReviewImageMapper">
+    <resultMap id="ReviewImageResult" type="ReviewImage">
+        <id property="imageId" column="image_id"/>
+        <result property="imageContent" column="image_content"/>
+        <result property="imageType" column="image_type"/>
+        <result property="reviewId" column="review_id"/>
+        <result property="reviewType" column="review_type"/>
+    </resultMap>
 
+    <sql id="selectReviewImage">
+        select image_id, image_content, image_type, review_id, review_type
+        from review_image
+    </sql>
+
+    <sql id="whereReviewImage">
+        <if test=" imageType!=null and imageType!=''">AND image_type = #{imageType}</if>
+        <if test=" reviewId!=null and reviewId!=''">review_id = #{reviewId}</if>
+        <if test=" reviewType!=null and reviewType!=''">review_type = #{reviewType}</if>
+
+    </sql>
+
+
+    <!-- 条件查询评论图片 -->
+    <select id="selectReviewImageList" resultMap="ReviewImageResult">
+        <include refid="selectReviewImage"/>
+        <where>
+            <include refid="whereReviewImage"/>
+        </where>
+    </select>
+
+    <!-- 根据imageId查询评论图片 -->
+    <select id="selectReviewImageByImageId" resultMap="ReviewImageResult">
+        <include refid="selectReviewImage"/>
+        where image_id= #{imageId}
+    </select>
+
+    <!-- 新增评论图片 -->
+    <insert id="insertReviewImage">
+        insert into review_image (image_id, image_content, image_type, review_id, review_type
+        ) values (
+        #{imageId},#{imageContent},#{imageType},#{reviewId},#{reviewType}
+        )
+    </insert>
+
+    <!-- 根据imageId删除评论图片 -->
+    <delete id="deleteReviewImageByImageId">
+        delete from review_image
+            where image_id= #{imageId}
+    </delete>
+
+    <!-- 根据reviewId删除评论图片 -->
+    <delete id="deleteReviewImageByReviewId">
+        delete from review_image
+        where review_id= #{reviewId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 </mapper>

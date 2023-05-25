@@ -2,6 +2,70 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseaproduct.saleservice.mapper.AfterSaleServiceMapper">
 
+    <resultMap id="AfterSaleServiceResult" type="AfterSaleService">
+        <id property="serviceId" column="service_id"/>
+        <result property="serviceName" column="service_name"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <sql id="selectAfterSaleService">
+        select service_id, service_name, remark
+        from after_sale_service
+    </sql>
+
+    <sql id="whereAfterSaleService">
+        <if test=" serviceName!=null and serviceName!=''"> AND service_name like concat('%',#{serviceName},'%')</if>
+        <if test=" remark!=null and remark!=''"> AND remark like concat('%',#{remark},'%')</if>
+    </sql>
+
+
+    <!-- 条件查询售后服务信息 -->
+    <select id="selectAfterSaleServiceList" resultMap="AfterSaleServiceResult">
+        <include refid="selectAfterSaleService"/>
+        <where>
+            <include refid="whereAfterSaleService"/>
+        </where>
+    </select>
+
+    <!-- 根据serviceId查询售后服务信息 -->
+    <select id="selectAfterSaleServiceByServiceId" resultMap="AfterSaleServiceResult">
+        <include refid="selectAfterSaleService"/>
+        where service_id= #{serviceId}
+    </select>
+
+    <!-- 新增售后服务信息 -->
+    <insert id="insertAfterSaleService">
+        insert into after_sale_service(
+        <if test=" serviceName!=null and serviceName!=''"> service_name ,</if>
+        <if test=" remark!=null and remark!=''"> remark ,</if>
+        service_id
+        ) values (
+        <if test=" serviceName!=null and serviceName!=''"> #{serviceName},</if>
+        <if test=" remark!=null and remark!=''"> #{remark},</if>
+        #{serviceId}
+        )
+    </insert>
+
+    <!-- 更改售后服务信息 -->
+    <update id="updateAfterSaleService">
+        update after_sale_service
+        <set>
+            <if test=" serviceName!=null and serviceName!=''"> service_name = #{serviceName},</if>
+            <if test=" remark!=null and remark!=''"> remark = #{remark},</if>
+            service_id= #{serviceId}
+        </set>
+        where service_id= #{serviceId}
+    </update>
+
+    <!-- 根据serviceId删除售后服务信息 -->
+    <delete id="deleteAfterSaleServiceByServiceId">
+        delete from after_sale_service
+            where service_id= #{serviceId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 </mapper>

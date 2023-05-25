@@ -2,6 +2,113 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseaproduct.review.mapper.ProductReviewMapper">
+
+    <resultMap id="ProductReviewResult" type="ProductReview">
+        <id property="reviewId" column="review_id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="productId" column="product_id"/>
+        <result property="specificationId" column="specification_id"/>
+        <result property="review" column="review"/>
+        <result property="type" column="type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="replyContent" column="reply_content"/>
+        <result property="isImage" column="is_image"/>
+
+    </resultMap>
+
+    <sql id="selectProductReview">
+        select review_id, order_id, product_id, specification_id, review, type, create_time, create_by, reply_content, update_time, update_by, is_image from product_review
+    </sql>
+
+    <sql id="whereProductReview">
+        <if test=" orderId!=null and orderId!=''"> AND order_id = #{orderId}</if>
+        <if test=" productId!=null and productId!=''"> AND product_id = #{productId}</if>
+        <if test=" specificationId!=null and specificationId!=''"> AND specification_id = #{specificationId}</if>
+        <if test=" review!=null and review!=''"> AND review = #{review}</if>
+        <if test=" type!=null and type!=''"> AND type = #{type}</if>
+        <if test=" createBy!=null and createBy!=''"> AND create_by = #{createBy}</if>
+        <if test=" updateBy!=null and updateBy!=''"> AND update_by = #{updateBy}</if>
+        <if test=" replyContent!=null and replyContent!=''"> AND reply_content like concat('%', #{replyContent},'%')</if>
+        <if test=" isImage!=null and isImage!=''"> AND is_image = #{isImage}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询商品评论 -->
+    <select id="selectProductReviewList" resultMap="ProductReviewResult">
+        <include refid="selectProductReview"/>
+        <where>
+            <include refid="whereProductReview"/>
+        </where>
+    </select>
+
+    <!-- 根据reviewId查询商品评论 -->
+    <select id="selectProductReviewByReviewId" resultMap="ProductReviewResult">
+        <include refid="selectProductReview"/>
+        where review_id= #{reviewId}
+    </select>
+
+    <!-- 新增商品评论 -->
+    <insert id="insertProductReview">
+        insert into product_review(
+        <if test=" reviewId!=null and reviewId!=''">review_id,</if>
+        <if test=" orderId!=null and orderId!=''">order_id ,</if>
+        <if test=" productId!=null and productId!=''">product_id ,</if>
+        <if test=" specificationId!=null and specificationId!=''">specification_id ,</if>
+        <if test=" review!=null and review!=''">review ,</if>
+        <if test=" type!=null and type!=''">type ,</if>
+        <if test=" createBy!=null and createBy!=''">create_by ,</if>
+        <if test=" replyContent!=null and replyContent!=''">reply_content,</if>
+        <if test=" isImage!=null and isImage!=''">is_image,</if>
+        create_time
+        ) values (
+        <if test=" reviewId!=null and reviewId!=''">#{reviewId},</if>
+        <if test=" orderId!=null and orderId!=''">#{orderId},</if>
+        <if test=" productId!=null and productId!=''">#{productId},</if>
+        <if test=" specificationId!=null and specificationId!=''"> #{specificationId},</if>
+        <if test=" review!=null and review!=''">#{review},</if>
+        <if test=" type!=null and type!=''">#{type},</if>
+        <if test=" createBy!=null and createBy!=''"> #{createBy},</if>
+        <if test=" replyContent!=null and replyContent!=''">#{replyContent},</if>
+        <if test=" isImage!=null and isImage!=''">#{isImage},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更改商品评论 -->
+    <update id="updateProductReview">
+        update product_review
+        <set>
+            <if test=" review!=null and review!=''">review = #{review},</if>
+            <if test=" type!=null and type!=''">type = #{type},</if>
+            <if test=" updateBy!=null and updateBy!=''">update_by = #{updateBy},</if>
+            <if test=" createTime!=null">create_time = #{createTime},</if>
+            <if test=" replyContent!=null and replyContent!=''">reply_content = #{replyContent},</if>
+            <if test=" isImage!=null and isImage!=''">is_image = #{isImage},</if>
+        update_time = sysdate()
+        </set>
+        where review_id = #{reviewId}
+    </update>
+
+    <!-- 根据reviewId删除商品评论 -->
+    <delete id="deleteProductReviewByReviewId">
+        delete  from product_review
+            where review_id= #{reviewId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 
 </mapper>
