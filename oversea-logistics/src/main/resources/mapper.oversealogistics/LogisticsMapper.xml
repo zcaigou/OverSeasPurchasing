@@ -2,6 +2,125 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.oversealogistics.staff.mapper.LogisticsStaffMapper">
+
+    <resultMap id="LogisticsStaffResult" type="LogisticsStaff">
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="companyId" column="company_id"/>
+        <result property="companyName" column="company_name"/>
+        <result property="telephone" column="telephone"/>
+        <result property="region" column="region"/>
+
+    </resultMap>
+
+    <sql id="selectLogisticsStaff">
+        select u.user_id, u.user_name ,u.company_id,u.region,u.telephone,lc.company_name from logistics_user u
+        left join logistics_company lc on u.company_id = lc.company_id
+    </sql>
+
+    <sql id="whereLogisticsStaff">
+        <if test=" userId!=null and userId!=''">AND user_id = #{userId}</if>
+        <if test=" userName!=null and userName!=''">AND user_name = #{userName}</if>
+        <if test=" companyId!=null and companyId!=''">AND company_id = #{companyId}</if>
+        <if test=" telephone!=null and telephone!=''">AND telephone = #{telephone}</if>
+        <if test=" region!=null and region!=''">AND region = #{region}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询员工信息 -->
+    <select id="selectLogisticsStaffList" resultMap="LogisticsStaffResult">
+        <include refid="selectLogisticsStaff"/>
+        <where>
+            <include refid="whereLogisticsStaff"/>
+        </where>
+    </select>
+
+    <!-- 根据userId查询员工信息 -->
+    <select id="selectLogisticsStaffByUserId" resultMap="LogisticsStaffResult">
+        <include refid="selectLogisticsStaff"/>
+        where user_id = #{userId}
+    </select>
+
+    <!-- 新增员工信息 -->
+    <insert id="insertLogisticsStaff">
+        insert into logistics_user (
+        <if test=" userName!=null and userName!=''">user_name ,</if>
+        <if test=" companyId!=null and companyId!=''">company_id ,</if>
+        <if test=" telephone!=null and telephone!=''">telephone ,</if>
+        <if test=" region!=null and region!=''">region ,</if>
+                                    user_id
+        ) values (
+        <if test=" userName!=null and userName!=''"> #{userName},</if>
+        <if test=" companyId!=null and companyId!=''"> #{companyId},</if>
+        <if test=" telephone!=null and telephone!=''">#{telephone},</if>
+        <if test=" region!=null and region!=''"> #{region},</if>
+                  #{userId}
+        )
+    </insert>
+
+    <!-- 更改员工信息 -->
+    <update id="updateLogisticsStaff">
+        update logistics_user
+        <set>
+            <if test=" userName!=null and userName!=''">user_name = #{userName},</if>
+            <if test=" companyId!=null and companyId!=''">company_id = #{companyId},</if>
+            <if test=" telephone!=null and telephone!=''">telephone = #{telephone},</if>
+            <if test=" region!=null and region!=''">region = #{region},</if>
+            user_id =#{userId}
+        </set>
+        where user_id = #{userId}
+    </update>
+
+    <!-- 根据userId删除员工信息-->
+    <delete id="deleteLogisticsStaffByUserId">
+        delete from logistics_user
+            where user_id = #{userId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </mapper>

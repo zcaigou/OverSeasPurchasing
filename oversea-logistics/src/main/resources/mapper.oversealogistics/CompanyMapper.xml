@@ -2,6 +2,62 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.oversealogistics.company.mapper.CompanyMapper">
+
+    <resultMap id="CompanyResult" type="Company">
+        <id property="companyId" column="company_id"/>
+        <result property="companyName" column="company_name"/>
+    </resultMap>
+
+    <sql id="selectCompany">
+        select * from logistics_company
+    </sql>
+
+
+    <!-- 新增物流公司信息 -->
+    <insert id="insertCompany">
+        insert into  logistics_company(company_id, company_name
+        ) values (
+            #{companyId} ,#{companyName}
+        )
+    </insert>
+
+    <!-- 更改物流公司信息 -->
+    <update id="updateCompany">
+        update logistics_company set company_name
+        where company_id = #{companyId}
+    </update>
+
+    <!-- 根据companyId删除物流公司信息 -->
+    <delete id="deleteByCompanyId">
+        delete from logistics_company
+            where company_id = #{companyId}
+    </delete>
+
+    <!-- 根据companyId查询物流公司信息 -->
+    <select id="selectCompanyById" resultMap="CompanyResult">
+        <include refid="selectCompany"/>
+        where company_id = #{companyId}
+    </select>
+
+    <!-- 条件查询物流公司信息 -->
+    <select id="selectCompanyList" resultMap="CompanyResult">
+        <include refid="selectCompany"/>
+        <where>
+            <if test="companyName !=null and companyName != ''"> company_name like concat ('%',#{companyName},'%')</if>
+        </where>
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </mapper>

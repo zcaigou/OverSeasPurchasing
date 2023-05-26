@@ -2,6 +2,147 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.oversealogistics.logistics.mapper.LogisticsMapper">
+
+    <resultMap id="LogisticsResult" type="Logistics">
+        <id property="logisticsId" column="logistics_id"/>
+        <result property="logisticsStatus" column="logistics_status"/>
+        <result property="fromUsername" column="from_username"/>
+        <result property="fromTelephone" column="from_telephone"/>
+        <result property="fromAddress" column="from_address"/>
+        <result property="toAddress" column="to_address"/>
+        <result property="toTelephone" column="to_telephone"/>
+        <result property="toUsername" column="to_username"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="collectorsId" column="collectors_id"/>
+        <result property="delivererId" column="deliverer_id"/>
+        <result property="path" column="path"/>
+        <result property="companyId" column="company_id"/>
+        <result property="logisticType" column="logistic_type"/>
+        <result property="companyName" column="company_name"/>
+        <result property="collectorsName" column="collectors_name"/>
+        <result property="delivererName" column="deliverer_name"/>
+
+    </resultMap>
+
+    <sql id="selectLogistics">
+        select l.logistics_id, l.logistics_status, l.from_username, l.from_telephone, l.from_address,
+               l.to_address, l.to_telephone, l.to_username, l.create_time, l.update_time,
+               l.collectors_id, l.deliverer_id, l.path, l.company_id, l.logistic_type,
+                lc.company_name,lu.user_name as collectors_name,luu.user_name as deliverer_name
+        from purchasing_logistics l
+        left join logistics_company lc on l.company_id = lc.company_id
+        left join logistics_user lu on lu.user_id = l.collectors_id
+        left join logistics_user luu on luu.user_id  = l.deliverer_id
+    </sql>
+
+    <sql id="whereLogistics">
+        <if test=" logisticsStatus!=null and logisticsStatus!=''"> AND l.logistics_status =#{logisticsStatus}</if>
+        <if test=" fromUsername!=null and fromUsername!=''"> AND l.from_username = #{fromUsername}</if>
+        <if test=" fromAddress!=null and fromAddress!=''"> AND l.from_address = #{fromAddress}</if>
+        <if test=" fromTelephone!=null and fromTelephone!=''"> AND l.from_telephone = #{fromTelephone}</if>
+        <if test=" toAddress!=null and toAddress!=''"> AND l.to_address = #{toAddress}</if>
+        <if test=" toUsername!=null and toUsername!=''"> AND l.to_username = {toUsername}</if>
+        <if test=" toTelephone!=null and toTelephone!=''"> AND l.to_telephone = #{toTelephone}</if>
+        <if test=" collectorsId!=null and collectorsId!=''"> AND l. collectors_id = {collectorsId}</if>
+        <if test=" delivererId!=null and delivererId!=''"> AND l.deliverer_id = #{delivererId}</if>
+        <if test=" path!=null and path!=''"> AND l.path = #{path}</if>
+        <if test=" companyId!=null and companyId!=''"> AND l.company_id = #{companyId}</if>
+        <if test=" logisticType!=null and logisticType!=''"> AND l.logistic_type = #{logisticType}</if>
+        <if test=" companyName!=null and companyName!=''"> AND lc.company_name like concat('',#{companyName},'%')</if>
+        <if test=" collectorsName!=null and collectorsName!=''"> AND lu.collectors_name like concat('',#{collectorsName},'%')</if>
+        <if test=" delivererName!=null and delivererName!=''"> AND luu.deliverer_name like concat('',#{delivererName},'%')</if>
+       
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND l.create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND l.create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询物流信息 -->
+    <select id="selectLogisticsList" resultMap="LogisticsResult">
+        <include refid="selectLogistics"/>
+        <where>
+            <include refid="whereLogistics"/>
+        </where>
+    </select>
+
+    <!-- 根据logisticsId查询物流信息 -->
+    <select id="selectLogisticsByLogisticsId" resultMap="LogisticsResult">
+        <include refid="selectLogistics"/>
+        where logistics_id= #{logisticsId}
+    </select>
+
+    <!-- 新增物流信息 -->
+    <insert id="insertLogistics">
+        insert into  purchasing_logistics(
+        <if test=" logisticsId!=null and logisticsId!=''">logistics_id ,</if>
+        <if test=" logisticsStatus!=null and logisticsStatus!=''">logistics_status,</if>
+        <if test=" fromUsername!=null and fromUsername!=''">from_username ,</if>
+        <if test=" fromAddress!=null and fromAddress!=''">from_address,</if>
+        <if test=" fromTelephone!=null and fromTelephone!=''">from_telephone ,</if>
+        <if test=" toAddress!=null and toAddress!=''">to_address ,</if>
+        <if test=" toUsername!=null and toUsername!=''">to_username ,</if>
+        <if test=" toTelephone!=null and toTelephone!=''">to_telephone,</if>
+        <if test=" collectorsId!=null and collectorsId!=''"> collectors_id ,</if>
+        <if test=" delivererId!=null and delivererId!=''">deliverer_id,</if>
+        <if test=" path!=null and path!=''">path,</if>
+        <if test=" companyId!=null and companyId!=''">company_id,</if>
+        <if test=" logisticType!=null and logisticType!=''">logistic_type ,</if>
+        create_time
+        ) values (
+        <if test=" logisticsId!=null and logisticsId!=''">#{logisticsId},</if>
+        <if test=" logisticsStatus!=null and logisticsStatus!=''">#{logisticsStatus},</if>
+        <if test=" fromUsername!=null and fromUsername!=''">#{fromUsername},</if>
+        <if test=" fromAddress!=null and fromAddress!=''"> #{fromAddress},</if>
+        <if test=" fromTelephone!=null and fromTelephone!=''">#{fromTelephone},</if>
+        <if test=" toAddress!=null and toAddress!=''">#{toAddress},</if>
+        <if test=" toUsername!=null and toUsername!=''">{toUsername},</if>
+        <if test=" toTelephone!=null and toTelephone!=''">#{toTelephone},</if>
+        <if test=" collectorsId!=null and collectorsId!=''">  {collectorsId},</if>
+        <if test=" delivererId!=null and delivererId!=''">#{delivererId},</if>
+        <if test=" path!=null and path!=''">#{path},</if>
+        <if test=" companyId!=null and companyId!=''"> #{companyId},</if>
+        <if test=" logisticType!=null and logisticType!=''">#{logisticType},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更改物流信息 -->
+    <update id="updateLogistics">
+        update purchasing_logistics
+        <set>
+            <if test=" logisticsStatus!=null and logisticsStatus!=''">logistics_status =#{logisticsStatus},</if>
+            <if test=" fromUsername!=null and fromUsername!=''">from_username = #{fromUsername},</if>
+            <if test=" fromAddress!=null and fromAddress!=''">from_address = #{fromAddress},</if>
+            <if test=" fromTelephone!=null and fromTelephone!=''">from_telephone = #{fromTelephone},</if>
+            <if test=" toAddress!=null and toAddress!=''">to_address = #{toAddress},</if>
+            <if test=" toUsername!=null and toUsername!=''">to_username = {toUsername},</if>
+            <if test=" toTelephone!=null and toTelephone!=''">to_telephone = #{toTelephone},</if>
+            <if test=" collectorsId!=null and collectorsId!=''"> collectors_id = {collectorsId},</if>
+            <if test=" delivererId!=null and delivererId!=''">deliverer_id = #{delivererId},</if>
+            <if test=" path!=null and path!=''">path = #{path},</if>
+            <if test=" companyId!=null and companyId!=''">company_id = #{companyId},</if>
+            <if test=" logisticType!=null and logisticType!=''">logistic_type = #{logisticType},</if>
+        update_time = sysdate()
+        </set>
+        where logistics_id= #{logisticsId}
+    </update>
+
+    <!-- 根据logisticsId删除物流信息 -->
+    <delete id="deleteLogisticsByLogisticsId">
+        delete from purchasing_logistics
+            where logistics_id= #{logisticsId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 
 </mapper>
