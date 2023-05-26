@@ -2,6 +2,115 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseapurchasing.orderexchange.mapper.OrderExchangeMapper" >
 
+    <resultMap id="OrderExchangeResult" type="OrderExchange">
+        <id property="exchangeId" column="exchange_id"/>
+        <result property="specificationId" column="specification_id"/>
+        <result property="orderPrice" column="order_price"/>
+        <result property="diffPrice" column="diff_price"/>
+        <result property="exchangeReson" column="exchange_reson"/>
+        <result property="fromLogistics" column="from_logistics"/>
+        <result property="toLogistics" column="to_logistics"/>
+        <result property="status" column="status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="remark" column="remark"/>
+
+    </resultMap>
+
+    <sql id="selectOrderExchange">
+        select * from product_exchange
+    </sql>
+
+    <sql id="whereOrderExchange">
+        <if test=" specificationId!=null and specificationId!=''"> AND specification_id= #{specificationId}</if>
+        <if test=" orderPrice!=null and orderPrice!=''"> AND order_price= #{orderPrice}</if>
+        <if test=" diffPrice!=null and diffPrice!=''"> AND diff_price= #{diffPrice}</if>
+        <if test=" exchangeReson!=null and exchangeReson!=''"> AND exchange_reson= #{exchangeReson}</if>
+        <if test=" fromLogistics!=null and fromLogistics!=''"> AND from_logistics= #{fromLogistics}</if>
+        <if test=" toLogistics!=null and toLogistics !=''"> AND to_logistics= #{toLogistics}</if>
+        <if test=" status!=null and status!=''"> AND 'status'= #{status}</if>
+        <if test=" remark!=null and remark!=''"> ANDremark = #{remark}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+    <!-- 条件查询换货信息 -->
+    <select id="selectOrderExchangeList" resultMap="OrderExchangeResult">
+        <include refid="whereOrderExchange"/>
+        <where>
+            <include refid="whereOrderExchange"/>
+        </where>
+    </select>
+
+
+    <!-- 根据exchangeId查询换货信息 -->
+    <select id="selectOrderExchangeByExchangeId" resultMap="OrderExchangeResult">
+        <include refid="whereOrderExchange"/>
+        where exchange_id= #{exchangeId}
+    </select>
+
+    <!-- 新增换货信息 -->
+    <insert id="insertOrderExchange">
+        insert into product_exchange (
+        <if test=" exchangeId!=null and exchangeId!=''"> exchange_id,</if>
+        <if test=" specificationId!=null and specificationId!=''"> specification_id,</if>
+        <if test=" orderPrice!=null and orderPrice!=''"> order_price,</if>
+        <if test=" diffPrice!=null and diffPrice!=''"> diff_price,</if>
+        <if test=" exchangeReson!=null and exchangeReson!=''"> exchange_reson,</if>
+        <if test=" fromLogistics!=null and fromLogistics!=''"> from_logistics,</if>
+        <if test=" toLogistics!=null and toLogistics !=''"> to_logistics,</if>
+        <if test=" status!=null and status!=''"> status,</if>
+        <if test=" createBy!=null and createBy!=''">create_by ,</if>
+        <if test=" remark!=null and remark!=''">remark ,</if>
+        create_time
+        ) values (
+        <if test=" exchangeId!=null and exchangeId!=''"> #{exchangeId},</if>
+        <if test=" specificationId!=null and specificationId!=''">  #{specificationId},</if>
+        <if test=" orderPrice!=null and orderPrice!=''"> #{orderPrice},</if>
+        <if test=" diffPrice!=null and diffPrice!=''"> #{diffPrice},</if>
+        <if test=" exchangeReson!=null and exchangeReson!=''"> #{exchangeReson},</if>
+        <if test=" fromLogistics!=null and fromLogistics!=''"> #{fromLogistics},</if>
+        <if test=" toLogistics!=null and toLogistics !=''"> #{toLogistics},</if>
+        <if test=" status!=null and status!=''"> #{status},</if>
+        <if test=" createBy!=null and createBy!=''"> #{createBy},</if>
+        <if test=" remark!=null and remark!=''">#{remark},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更改换货信息 -->
+    <update id="updateOrderExchange">
+        update product_exchange
+        <set>
+            <if test=" specificationId!=null and specificationId!=''"> specification_id= #{specificationId},</if>
+            <if test=" orderPrice!=null and orderPrice!=''"> order_price= #{orderPrice},</if>
+            <if test=" diffPrice!=null and diffPrice!=''"> diff_price= #{diffPrice},</if>
+            <if test=" exchangeReson!=null and exchangeReson!=''"> exchange_reson= #{exchangeReson},</if>
+            <if test=" fromLogistics!=null and fromLogistics!=''"> from_logistics= #{fromLogistics},</if>
+            <if test=" toLogistics!=null and toLogistics !=''"> to_logistics= #{toLogistics},</if>
+            <if test=" status!=null and status!=''"> 'status'= #{status},</if>
+            <if test=" updateBy!=null and updateBy!=''">update_by = #{updateBy},</if>
+            <if test=" remark!=null and remark!=''">remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where exchange_id= #{exchangeId}
+    </update>
+    <!-- 根据exchangeId删除换货信息 -->
+    <delete id="deleteOrderExchangeByExchangeId">
+        delete from product_exchange
+        where exchange_id= #{exchangeId}
+    </delete>
+    <!-- -->
+
+    <!-- -->
 </mapper>

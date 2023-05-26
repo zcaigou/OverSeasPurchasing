@@ -547,6 +547,8 @@ CREATE TABLE `purchasing_trolley`  (
                                        `product_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品id',
                                        `specifications_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品规格标识',
                                        `sum` int(0) NULL DEFAULT NULL COMMENT '数量',
+                                       `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+                                       `update_time` datetime(0) NULL DEFAULT NULL COMMENT '修改时间',
                                        PRIMARY KEY (`product_id`, `user_id`, `shop_id`, `specifications_id`) USING BTREE,
                                        INDEX `trolley_useruri_fk`(`user_id`) USING BTREE,
                                        INDEX `trolley_shopid_fk`(`shop_id`) USING BTREE,

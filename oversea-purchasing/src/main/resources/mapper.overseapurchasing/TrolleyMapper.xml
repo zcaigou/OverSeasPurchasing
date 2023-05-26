@@ -2,6 +2,79 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseapurchasing.trolley.mapper.TrolleyMapper">
 
+    <resultMap id="TrolleyResult" type="Trolley">
+        <id property="userId" column="user_id"/>
+        <result property="shopId" column="shop_id"/>
+        <result property="productId" column="product_id"/>
+        <result property="specificationsId" column="specifications_id"/>
+        <result property="sum" column="sum"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+
+    </resultMap>
+
+    <sql id="selectTrolley">
+        select * from purchasing_trolley
+    </sql>
+
+    <sql id="whereTrolley">
+        <if test=" userId!=null and userId!=''">user_id = #{userId}</if>
+        <if test=" shopId!=null and shopId!=''">shop_id = #{shopId}</if>
+        <if test=" productId!=null and productId!=''">product_id = #{productId}</if>
+        <if test=" specificationsId!=null and specificationsId!=''"> AND specifications_id =#{specificationsId}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+
+    <!-- 条件查询 -->
+    <select id="selectTrolleyList" resultMap="TrolleyResult">
+        <include refid="selectTrolley"/>
+        <where>
+            <include refid="whereTrolley"/>
+        </where>
+    </select>
+
+    <!-- 查询购物车中商品信息  -->
+    <select id="selectTrolleyOne" resultMap="TrolleyResult">
+        <include refid="selectTrolley"/>
+        where  user_id= #{userId} and shop_id = #{shopId}
+        and product_id = #{productId} and specifications_id = #{specificationsId}
+    </select>
+
+    <!-- 新增购物车中商品信息  -->
+    <insert id="insertTrolley">
+        insert into purchasing_trolley(
+         user_id, shop_id, product_id, specifications_id, sum, create_time
+        ) values (
+       #{userId} , #{shopId} ,#{productId} ,#{specificationsId},#{sum},sysdate()
+        )
+    </insert>
+
+    <!-- 更改购物车中商品信息  -->
+    <update id="updateTrolley">
+        update purchasing_trolley set sum = #{sum} and update_time = sysdate()
+        where user_id= #{userId} and shop_id = #{shopId}
+          and product_id = #{productId} and specifications_id = #{specificationsId}
+    </update>
+
+    <!-- 删除购物车中商品信息 -->
+    <delete id="deleteTrolley">
+        delete from purchasing_trolley
+            where 
+        user_id= #{userId} and shop_id = #{shopId} 
+        and product_id = #{productId} and specifications_id = #{specificationsId}
+    </delete>
+
+    <!-- -->
+
+    <!-- -->
 </mapper>

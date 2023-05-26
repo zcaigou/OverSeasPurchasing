@@ -1,13 +1,10 @@
-package com.lhg.overseapurchasing.orderreturn.mapper;
+package com.lhg.overseapurchasing.orderreturn.service;
 
 import com.lhg.overseapurchasing.orderreturn.domain.OrderReturn;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
-public interface OrderReturnMapper {
-
+public interface IOrderReturnService {
     /**
      * 条件查询退货信息
      */
@@ -32,5 +29,4 @@ public interface OrderReturnMapper {
      * 根据returnId删除退货信息
      */
     public int deleteOrderReturnByReturnId(String returnId);
-
 }

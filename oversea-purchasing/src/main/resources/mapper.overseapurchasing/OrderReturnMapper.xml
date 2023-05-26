@@ -2,6 +2,115 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="com.lhg.overseapurchasing.orderreturn.mapper.OrderReturnMapper" >
 
+    <resultMap id="OrderReturnResult" type="OrderReturn">
+        <id property="returnId" column="return_id"/>
+        <result property="specificationId" column="specification_id"/>
+        <result property="orderPrice" column="order_price"/>
+        <result property="returnPrice" column="return_price"/>
+        <result property="refundReson" column="refund_reson"/>
+        <result property="fromLogistics" column="from_logistics"/>
+        <result property="returnType" column="return_type"/>
+        <result property="status" column="status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="remark" column="remark"/>
+
+    </resultMap>
+
+    <sql id="selectOrderReturn">
+        select * from product_return
+    </sql>
+
+    <sql id="whereOrderReturn">
+        <if test=" specificationId!=null and specificationId!=''"> AND specification_id= #{specificationId}</if>
+        <if test=" orderPrice!=null and orderPrice!=''"> AND order_price= #{orderPrice}</if>
+        <if test=" returnPrice!=null and returnPrice!=''"> AND return_price= #{returnPrice}</if>
+        <if test=" refundReson!=null and refundReson!=''"> AND refund_reson= #{refundReson}</if>
+        <if test=" fromLogistics!=null and fromLogistics!=''"> AND from_logistics= #{fromLogistics}</if>
+        <if test=" returnType!=null and returnType !=''"> AND return_type= #{returnType}</if>
+        <if test=" status!=null and status!=''"> AND 'status'= #{status}</if>
+        <if test=" remark!=null and remark!=''"> ANDremark = #{remark}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            AND create_time <![CDATA[>= ]]>
+            TO_TIMESTAMP(#{params.beginTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            AND create_time <![CDATA[<= ]]>
+            TO_TIMESTAMP(#{params.endTime}, 'YYYY-MM-DD HH24:MI:SS')
+        </if>
+    </sql>
+
+    <!-- 条件查询退货信息 -->
+    <select id="selectOrderReturnList" resultMap="OrderReturnResult">
+        <include refid="whereOrderReturn"/>
+        <where>
+            <include refid="whereOrderReturn"/>
+        </where>
+    </select>
+
+
+    <!-- 根据returnId查询退货信息 -->
+    <select id="selectOrderReturnByReturnId" resultMap="OrderReturnResult">
+        <include refid="whereOrderReturn"/>
+        where return_id= #{returnId}
+    </select>
+
+    <!-- 新增退货信息 -->
+    <insert id="insertOrderReturn">
+        insert into product_return (
+        <if test=" returnId!=null and returnId!=''"> return_id,</if>
+        <if test=" specificationId!=null and specificationId!=''"> specification_id,</if>
+        <if test=" orderPrice!=null and orderPrice!=''"> order_price,</if>
+        <if test=" returnPrice!=null and returnPrice!=''"> return_price,</if>
+        <if test=" refundReson!=null and refundReson!=''"> refund_reson,</if>
+        <if test=" fromLogistics!=null and fromLogistics!=''"> from_logistics,</if>
+        <if test=" returnType!=null and returnType !=''"> return_type,</if>
+        <if test=" status!=null and status!=''"> status,</if>
+        <if test=" createBy!=null and createBy!=''">create_by ,</if>
+        <if test=" remark!=null and remark!=''">remark ,</if>
+        create_time
+        ) values (
+        <if test=" returnId!=null and returnId!=''"> #{returnId},</if>
+        <if test=" specificationId!=null and specificationId!=''">  #{specificationId},</if>
+        <if test=" orderPrice!=null and orderPrice!=''"> #{orderPrice},</if>
+        <if test=" returnPrice!=null and returnPrice!=''"> #{returnPrice},</if>
+        <if test=" refundReson!=null and refundReson!=''"> #{refundReson},</if>
+        <if test=" fromLogistics!=null and fromLogistics!=''"> #{fromLogistics},</if>
+        <if test=" returnType!=null and returnType !=''"> #{returnType},</if>
+        <if test=" status!=null and status!=''"> #{status},</if>
+        <if test=" createBy!=null and createBy!=''"> #{createBy},</if>
+        <if test=" remark!=null and remark!=''">#{remark},</if>
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更改退货信息 -->
+    <update id="updateOrderReturn">
+        update product_return
+        <set>
+            <if test=" specificationId!=null and specificationId!=''"> specification_id= #{specificationId},</if>
+            <if test=" orderPrice!=null and orderPrice!=''"> order_price= #{orderPrice},</if>
+            <if test=" returnPrice!=null and returnPrice!=''"> return_price= #{returnPrice},</if>
+            <if test=" refundReson!=null and refundReson!=''"> refund_reson= #{refundReson},</if>
+            <if test=" fromLogistics!=null and fromLogistics!=''"> from_logistics= #{fromLogistics},</if>
+            <if test=" returnType!=null and returnType !=''"> return_type= #{returnType},</if>
+            <if test=" status!=null and status!=''"> 'status'= #{status},</if>
+            <if test=" updateBy!=null and updateBy!=''">update_by = #{updateBy},</if>
+            <if test=" remark!=null and remark!=''">remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where return_id= #{returnId}
+    </update>
+    <!-- 根据returnId删除退货信息 -->
+    <delete id="deleteOrderReturnByReturnId">
+        delete from product_return
+        where return_id= #{returnId}
+    </delete>
+    <!-- -->
+
+    <!-- -->
 </mapper>
